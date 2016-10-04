@@ -255,6 +255,7 @@ div.i3footer
   border-left : 2px solid #DDD;
   text-align  : left;
 }
+
 /*====== EDITOR'S NOTE  */
 /*Subdivision for NdT/FOOTER
   Note: footer == div.i3ndt
@@ -262,21 +263,24 @@ div.i3footer
 hr.i3ndt:after
 { content : "Notes:"; font-size : 72%; font-weight : bold; }
 
-div.i3ndt>p:first-child
-, footer.i3ndt>p:first-child
-{ margin-left : -1em; }
-
-div.i3ndt>p
-, footer.i3ndt>p
-{ margin : 0; }
-
-div.i3ndt
-, footer.i3ndt
+div.i3ndt,
+footer.i3ndt
 {
   margin-left : 2.5em;
   font-size   : 64%;
   color       : gray;
 }
+
+div.i3ndt>p:first-child,
+footer.i3ndt>p:first-child
+{ margin-left : -1em;
+  margin-top: 1.5em;}
+
+div.i3ndt>p,
+footer.i3ndt>p
+{ margin : 0;
+  line-height: 1.5em !important;}
+
 
 
 
@@ -318,21 +322,20 @@ div.spacer4 { display:inline ; padding-left:4em; }
 /*http://www.w3schools.com/charsets/ref_utf_punctuation.asp*/
 /* thinsp= hex=\2009 &#8239;
 /* The quote of unicode works as is in blogger */
-div[lang|='FR'] Q
-, Q:lang(fr)
+div[lang|='FR'] q,
+q:lang(fr)
 /*{ font-style : italic; quotes : '\AB\A0' '\A0\BB' "'" "'"; }*/
 /*{ font-style : italic; quotes : "\AB\A0" "\A0\BB" "\201c" "\201d"; }*/
-{ font-style : italic; quotes : "\AB\2009" "\2009\BB" "\201c" "\201d"; }
-/*{ font-style : italic; quotes : "«\2009" "\20090»" "\201c" "\201d"; }*/
+/*{ font-style : italic; quotes : "\AB\2009" "\2009\BB" "\201c" "\201d"; }*/
+{ font-style : italic; quotes : "«\A0" "\A0»" "\201c" "\201d"; }
 
-
-div[lang|='ES']  Q
-/*, :lang(es) Q*/
-/*{ font-style : italic; quotes : '\201c' '\201d' "'" "'"; }*/
+div[lang|='ES'] q,
+q:lang(es)
 { font-style : italic; quotes : '\AB' '\BB' '\201c' '\201d'; }
 
 /*Single emphasis inside quote */
-Q>EM, EM>EM{  text-decoration: underline; }
+q>EM, EM>EM{  text-decoration: underline; }
+
 
 /*===========  FORM ITEMS
 http://www.w3schools.com/html/html_colornames.asp
