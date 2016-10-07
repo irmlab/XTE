@@ -315,9 +315,16 @@ footer.i3ndt>p
 }
 
 
-div.spacer1 { display:inline ; padding-left:1em; }
-div.spacer2 { display:inline ; padding-left:2em; }
-div.spacer4 { display:inline ; padding-left:4em; }
+/*===========  Typography  */
+
+.i3clear { clear : both ; }
+.hspacer1 { display : inline; padding-left : 1em; }
+.hspacer2 { display : inline; padding-left : 2em; }
+.hspacer4 { display : inline; padding-left : 4em; }
+.vspacer1 { padding-top : 1em; }
+.vspacer2 { padding-top : 2em; }
+.vspacer4 { padding-top : 4em; }
+
 
 /*http://www.w3schools.com/charsets/ref_utf_punctuation.asp*/
 /* thinsp= hex=\2009 &#8239;
