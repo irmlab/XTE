@@ -1,3 +1,6 @@
+/*===========  epub-COMMON */
+@namespace epub "http://www.idpf.org/2007/ops";
+
 @media screen, projection
 {
 /*===========  CSS-COMMON */
@@ -34,13 +37,21 @@ content: " [Lire]" !important;
 color: indianred !important;
 }
 
-
-
 /*===========  EMBEDDED OBJECTS */
+
+/* Post Images */
 img.i3img
-{ width : 80%; height : 80%; margin-left : auto; margin-right : auto; }
+{ width : 60%; margin-left : auto; margin-right : auto; }
+
+/*img.i3img:nth-of-type(odd)*/
+/*{ width : 40%; margin-left : auto; margin-right : auto; }*/
+/*img.i3img:nth-of-type(even)*/
+/*{ width : 40%; margin-left : auto; margin-right : auto; float:right; clear:bottom; }*/
+
+/*Sections glossaire, liens, etc*/
 img.i3epub
-{ margin-left : auto; margin-right : auto; }
+{ margin-left : auto; margin-right : 1em; float:left; }
+
 
 iframe.i3frame
 { width : 95%; height : 480px; margin-left : auto; margin-right : auto; border : solid black; }
@@ -335,10 +346,14 @@ a[epub\:type~='noteref']
 
 /*===========  Typography  */
 
+.i3clear { clear : both ; }
+.hspacer1 { display : inline; padding-left : 1em; }
+.hspacer2 { display : inline; padding-left : 2em; }
+.hspacer4 { display : inline; padding-left : 4em; }
+.vspacer1 { padding-top : 1em; }
+.vspacer2 { padding-top : 2em; }
+.vspacer4 { padding-top : 4em; }
 
-div.spacer1 { display:inline ; padding-left:1em; }
-div.spacer2 { display:inline ; padding-left:2em; }
-div.spacer4 { display:inline ; padding-left:4em; }
 
 /*http://www.w3schools.com/charsets/ref_utf_punctuation.asp*/
 /* thinsp= hex=\2009 &#8239;
@@ -511,6 +526,110 @@ http://www.w3schools.com/html/html_colornames.asp
   padding               : 0 .2em 0 0.2em;
   font-size             : 1.3em;
 }
+
+
+/*===========  Static Navigation button
+<div class=i3nav> <a class=i3buttonNav href='#'>[UP]</a> </div>
+*/
+
+div.i3nav { width:92% ; text-align: right; margin: 2em 0 ; }
+
+.i3buttonNav
+{
+  font             : normal 1em/1.5em Arial, Helvetica;
+  white-space      : nowrap;
+  margin           : 0;
+  padding          : 0 1.2em;
+  text-decoration  : none !important;
+  border           : 1px solid #aaa;
+  color            : #666 !important;
+  background-color : whiteSmoke; /* #EEE;*/
+}
+
+/*===========  StaticTables   */
+table
+{
+  margin-left:auto;
+  margin-right:auto;
+  width : 92%;
+  background : #fffdea;
+}
+
+td:nth-child(odd)             /* colonne gauche DT */
+{
+  margin    : 1em;
+  padding    : 1em;
+
+  font       : normal 1em/1.5em Arial, Helvetica;
+  font-size : 84%;
+  font-weight: bold;
+
+  width : 25%;
+  background : #e4ede4;
+  text-align: right;
+  vertical-align: top ;
+
+}
+td:nth-child(even)          /* colonne droite DD */
+{
+  padding   : 1em;
+  font-size : 72%;
+  line-height: 1.5em;
+}
+/* Glossary : first line with source terms is inside span */
+td:nth-child(even) > span /* version bilingue : la premiere ligne est le mot espagnol */
+{
+  font-style : italic;
+  line-height: 2em;
+  padding-top : 0 ;
+  background : rgba(0, 188, 187, 0.33);
+}
+/* Credits, Notes... with <ol><li> -- Adds some separation between notes */
+td li{ margin: 0.5em 0; }
+
+/*List of terms in source language*/
+div.i3jumps
+{
+  margin-left:auto;
+  margin-right:auto;
+  width : 86%;
+
+  text-align           : left;
+  color                : #666;
+  font-size            : 74%;
+  -moz-column-count    : 3; /* Firefox */
+  -webkit-column-count : 3; /* Safari and Chrome */
+  column-count         : 3;
+}
+
+/*===========  GLOSSARY structure
+dl, dt, dd
+{ padding : 0; margin : 0; }
+
+dl
+{ width : 100%; overflow : hidden; background : #eee; }
+
+dt
+{ float : left; width : 24%; background : #ccc; margin-top:1em; clear: left;}
+
+dd
+{ float : right; width : 74%; background : #eee; clear: right;}
+
+.i3expressions dt
+{ float : left; width : 40%; background : #eee; }
+
+.i3expressions dd
+{ float : left; width : 60%; background : #eee; }
+
+dt div
+{ padding : 0.5em; text-align : right; }
+
+dd div
+{ padding : 1em; border-left : solid; }
+
+dd div:first-line
+{ font-weight : bold; }
+*/
 
 /*===========  END CSS-COMMON */
 
