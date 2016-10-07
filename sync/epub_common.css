@@ -1,8 +1,8 @@
 /*===========  CSS-COMMON */
 @media all, i3sections
-{  /*===========  STRUCTURE OBJECTS */
+{
+  /*===========  STRUCTURE OBJECTS */
   /*Sections glossaire, liens, etc*/
-
   /* Tous les cas: liste fichiers et statics avec spirale */
   header img.i3epub
   {
@@ -45,12 +45,10 @@
 
 }
 
-
 @media all, i3layout
 {
 
-
-  /*=== DATATION + SEPARATORS + FOONOTES */
+   /*=== DATATION + SEPARATORS + FOONOTES */
   /* PPCCDate information.: */
   div.i3date
   {
@@ -59,6 +57,8 @@
     color       : gray;
     text-align  : right;
   }
+
+
 
   /*===========  POST LAYOUT STRUCTURE */
   .i3common
@@ -73,8 +73,6 @@
     word-break  : normal;
   }
 
-  /*===========  POST LAYOUT STRUCTURE */
-
   /* Monoligual (EPUB) */
   .i3post
   {
@@ -82,27 +80,7 @@
     text-align : justify;
   }
 
-
-/* Bilingual Version Source */
-.i3postVS
-{
-  text-align           : left;
-  color                : #666;
-  font-size            : 86%;
-  -moz-column-count    : 2; /* Firefox */
-  -webkit-column-count : 2; /* Safari and Chrome */
-  column-count         : 2;
-}
-
-/* Bilingual Version Target  */
-.i3postVT
-{
-  padding    : 1em;
-  text-align: left;
-}
-
-
-  /*====== AUTHOR'S COMMENT CONCATENATOR  */
+   /*====== AUTHOR'S COMMENT CONCATENATOR  */
   hr.i3concat
   {
     clear            : both;
@@ -186,7 +164,6 @@
 
 }
 
-
 @media all, i3statics
 {
   /*===========  StaticTables   */
@@ -262,7 +239,6 @@
   }
 
 }
-
 
 @media all, i3typography
 {
@@ -472,22 +448,27 @@
 }
 
 
-@media screen, i3WEBbuttons
+
+
+
+@media screen, i3EPUBbuttons
 {
 
-/*===========  IN3ACTIVE BUTTONS STYLES
- Using tag <a>
-*/
-
+  /*===========  IN3ACTIVE BUTTONS STYLES
+   Using tag <a>
+  */
   .i3buttons
   {
-    overflow   : visible; /* removes extra side spacing in IE */
-    display    : table;
-    float      : right;
-    position   : relative;
-    margin     : 0;
-    padding    : 1em;
-    text-align : right;
+    overflow     : visible; /* removes extra side spacing in IE */
+    display      : block;
+    width        : 99%;
+    margin-left  : auto;
+    margin-right : auto;
+
+    /*display         : table;*/
+    /*float           : right;*/
+    position     : relative;
+    text-align   : center;
   }
 
   .i3buttonDlg
@@ -495,360 +476,35 @@
 
   .i3buttonREF:hover
   {
-    font-weight : bold;
-    /*background-color : #DDEEEE;*/
+    /*font-weight      : bold;*/
+    background-color : greenyellow;
   }
 
   .i3buttonREF
   {
-    font             : normal 1em/1.5em Arial, Helvetica;
+    font             : normal 0.8em/1em Arial, Helvetica;
     white-space      : nowrap;
     margin           : 0;
-    padding          : 0 1.2em;
+    padding          : 0 1em;
     text-decoration  : none !important;
     border           : 1px solid #aaa;
     color            : #666 !important;
     background-color : whiteSmoke; /* #EEE;*/
   }
 
-  .i3buttonVS
-  {
-    font             : normal 1em/1.5em Arial, Helvetica;
-    white-space      : nowrap;
-    margin           : 0;
-    padding          : 0 1.2em;
-    text-decoration  : none !important;
-    border           : 1px solid #aaa;
-    color            : #666 !important;
-    background-color : whiteSmoke; /* #EEE;*/
-  }
+  /*
+  .i3buttonREF li
+  { list-style : none; }
 
-  /* dynamic classes added */
-  .i3buttonVSPlus:after
-  { content : '\261F'; font : normal 1em/1em Arial, Helvetica; }
+  ul.i3buttonREF
+  { float : right; position : relative; }
 
-  /*White down   pointing index*/
-  .i3buttonVSMinus:after
-  { content : '\261D'; font : normal 1em/1em Arial, Helvetica; }
-
-  /*White up   pointing index*/
-  .i3buttonVS:after
-  {
-    background            : whiteSmoke; /* #EEE;*/
-    /*background: rgba(0,0,0,.1);*/
-    -moz-box-shadow       : 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0 rgba(255, 255, 255, .5);
-    -webkit-box-shadow    : 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0 rgba(255, 255, 255, .5);
-    box-shadow            : 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0 rgba(255, 255, 255, .5);
-    -moz-border-radius    : .15em 0 0 .15em;
-    -webkit-border-radius : .15em 0 0 .15em;
-    border-radius         : .15em 0 0 .15em;
-    width                 : 1em;
-    text-align            : center;
-    margin                : 0 -1em 0 1em; /* position right */
-    padding               : 0 .2em 0 0.2em;
-    font-size             : 1.3em;
-  }
-
-}
-
-@media screen, i3WEBuserforms
-{
-
-/*===========  FORM ITEMS
-http://www.w3schools.com/html/html_colornames.asp
-*/
-  .i3form
-  { width : 96%; }
-
-  .i3formfields
-  {
-    display            : block;
-    text-align         : left;
-    font-size          : 90%;
-    padding            : 0.5em;
-    border             : 1px solid #3a3a3a;
-    /* CSS3 rounded corners, drop-shadow and opacity fade in */
-    -moz-border-radius : 12px;
-    border-radius      : 12px;
-    -webkit-box-shadow : 2px 2px 4px #3a3a3a;
-    -moz-box-shadow    : 2px 2px 4px #3a3a3a;
-    box-shadow         : 2px 2px 4px #3a3a3a;
-    -webkit-transition : opacity 0.5s ease-in-out;
-    -moz-transition    : opacity 0.5s ease-in-out;
-    -o-transition      : opacity 0.5s ease-in-out;
-    -ms-transition     : opacity 0.5s ease-in-out;
-    transition         : opacity 0.5s ease-in-out;
-  }
-
-  .i3formfields .i3formError
-  {
-    color      : red;
-    text-align : center;
-    font-style : italic;
-  }
-
-  .i3formfields .i3fieldError
-  { border : solid 1px red; }
-
-  .i3formfields label
-  {
-    display    : inline-block;
-    font-style : italic; width : 45%; text-align : right;
-  }
-
-  .i3formfields input[type='text']
-  {
-    display          : inline-block;
-    background-color : whiteSmoke;
-    border           : medium none;
-    padding          : 0.5em; margin : 0.5em;
-    height           : 1.8em;
-    width            : 40%;
-  }
-
-  .i3formfields textarea
-  {
-    width            : 94%;
-    resize           : vertical;
-    background-color : whiteSmoke;
-    border           : medium none;
-    padding          : 0.5em; margin : 0.5em;
-  }
-
-  .i3formbuttons
-  {
-    text-align : center; display : block;
-    font-size  : 90%;
-    padding    : 1em;
-  }
-
-  .i3formbuttons input[type='reset']
-  { background-color : lightsalmon; }
-
-  .i3formbuttons input[type='submit']
-  { background-color : palegreen; }
-
-  .i3formbuttons input[type='button']
-  { background-color : whiteSmoke; }
-
-  .i3formdescription
-  {
-    /*border-top : 1px solid #ccc;*/
-    width      : 96%;
-    font-style : italic;
-    font-size  : 90%;
-    text-align : center;
-  }
-
-}
-
-@media screen, i3WEBtabs
- {
-/*===========  TABED DIALOGS
- * "Yet Another Multicolumn Layout" - YAML CSS Framework
- *
- * (en) Styles for Accessible-Tabs plugin for jQuery
- * (de) Gestaltung des Acessible-Tabs Plugins für jQuery
- *
- * @copyright       Copyright 2005-2012, Dirk Jesse
- * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
- *                  YAML-CDL (http://www.yaml.de/license.html)
- * @link            http://www.yaml.de
- * @package         yaml
- * @version         v4.0.1
- * @revision        $Revision: 724 $
- * @lastmodified    $Date: 2012-03-03 11:45:41 +0100 (Sa, 03 Mrz 2012) $
- */
-
-  .jquery_tabs
-  {
-    margin : 1em 2em;
-    clear  : both;
-  }
-
-  .jquery_tabs .tabhead
-  {
-    position : absolute;
-    left     : -32768px; /* LTR */
-  }
-
-  .jquery_tabs .content
-  {
-    border-top    : 1px #ccc solid;
-    border-bottom : 1px #ccc solid;
-    clear         : both;
-    position      : relative;
-    /*top           : -3px;*/
-    /*bottom        : -3px;*/
-    margin        : 0.5em;
-    padding       : 1em;
-  }
-
-  .jquery_tabs ul.tabs-list
-  {
-    font            : 1em/1.5em Arial, Helvetica;
-    list-style-type : none;
-    overflow        : visible;
-    display         : table;
-    float           : right;
-    position        : relative;
-    padding         : 0em;
-    text-align      : right;
-    z-index         : 1;
-
-    /*margin: 0 0 6em 0;     IRM= allow alot room below ! */
-  }
-
-  .jquery_tabs ul.tabs-list li:hover
-  {
-    font-weight : bold;
-    /*background-color : #DDEEEE;*/
-  }
-
-  .jquery_tabs ul.tabs-list li
-  {
-    display          : inline;
-    text-align       : right; /* be sure the a-ref buttons are right packed */
-    float            : left;
-    font             : normal 1em/1.5em Arial, Helvetica;
-    white-space      : nowrap;
-    margin           : 0;
-    padding          : 0 1.2em;
-    text-decoration  : none !important;
-    border           : 1px solid #aaa;
-    color            : #666 !important;
-    background-color : whiteSmoke; /*#b0c4de=lightsteelblue;  whiteSmoke; #EEE;*/
-  }
-
-  .jquery_tabs ul.tabs-list li a
-  {
-    background      : transparent;
-    /*color:#008;*/
-    color           : #666;
-    display         : block;
-    float           : left;
-    font-weight     : normal;
-    margin          : 0;
-    outline         : 0 none;
-    text-decoration : none;
-  }
-
-  .jquery_tabs ul.tabs-list li a:focus,
-  .jquery_tabs ul.tabs-list li a:hover,
-  .jquery_tabs ul.tabs-list li a:active
-  {
-    border-radius   : 0.4em 0.4em 0 0;
-    color           : #555;
-    font-weight     : bold;
-    outline         : 0 none;
-    text-decoration : none;
-  }
-
-  .jquery_tabs ul.tabs-list li.current a,
-  .jquery_tabs ul.tabs-list li.current a:focus,
-  .jquery_tabs ul.tabs-list li.current a:hover,
-  .jquery_tabs ul.tabs-list li.current a:active
-  {
-    /*border          : 1px #ccc solid;*/
-    border-bottom   : 0 none;
-    border-radius   : 0.2em 0.2em 0 0;
-    color           : #000;
-    font-weight     : bold;
-    text-decoration : none;
-  }
-
-  .jquery_tabs .current-info,
-  .jquery_tabs .accessibletabsanchor
-  {
-    left     : -999em;
-    position : absolute;
-  }
-
-  /**
-  * Avoid margin collapsing to enable correct sync of all tabs
-  *
-  * @workaround
-  * @affected all browsers
-  * @css-for all browsers
-  * @valid yes
-  */
-  .jquery_tabs .tab-content
-  {
-    border-bottom : 1px transparent solid;
-    border-top    : 1px transparent solid;
-    *overflow     : hidden;
-  }
-
-  /* IE < 7 don't support transparent borders */
-  * html .jquery_tabs .tab-content
-  {
-    border-bottom : 1px #fff solid;
-    border-top    : 1px #fff solid;
-  }
-
-  /**
-  * Containing floats adjustment and stability fixes for Internet Explorer
-  *
-  * @workaround
-  * @affected IE 5.x/Win, IE6, IE7
-  * @css-for IE 5.x/Win, IE6, IE7
-  * @valid no
-  */
-  * html .jquery_tabs .content
-  { z-index : -1;
-  }
-
-  * html .jquery_tabs
-  { /*zoom : 1;*/ width : auto; position : relative; }
-
-  * + html .jquery_tabs
-  { /*zoom : 1; */width : auto; }
-
-  .jquery_tabs *
-  { /*zoom : 1;*/ }
-
-}
-
-@media screen, i3WEBblogger
-{
-  /*===========  Google BLOGGERlayout */
-  h1.title.entry-title
-  { display : none !important; }
-
-  /*div.article-header { display: none !important;}*/
-  /*Google Comments block*/
-  /*div.comments  { display : none ; }*/
-  div.comments-header
-  { display : none !important; }
-
-  /*Google Sharing buttons */
-  div.article-footer
+  .submenu
   { display : none; }
 
-  /*div.publish-info   { display : none !important; }*/
-  div.share-controls
-  { width : 100%; text-align : center; }
-
-  /* Popup zona at bottom of view*/
-  a.feedback
-  { display : none !important; }
-
-  /* Use this to disable completely the view=classic option
-  #views.menu li.Classic { display:none; }*/
-  /* Tip to add readmore
-  http://www.southernspeakers.net/2012/09/adding-read-more-tag-to-post-summaries.html  */
-  :lang(fr) .magazine .summary:after,
-  :lang(fr) .ss
-  {
-    content : " [Lire]" !important;
-    color   : indianred !important;
-  }
-
-  :lang(es) .magazine .summary:after,
-  :lang(es) .ss
-  {
-    content : " [Leer]" !important;
-    color   : indianred !important;
-  }
+  ul.i3buttonREF:hover .submenu
+  { display : block; }
+  */
+  /*===========  END CSS-COMMON */
 
 }
