@@ -40,8 +40,21 @@
     font-family : "Arial Narrow", Calibri, serif;
   }
 
+  #toc-main ol,
   #toc ol
-  { list-style : inside; }
+  {
+    padding-left: 2em;
+    list-style : inside;
+  }
+
+  #toc-post ol
+  { list-style : inside;
+    -moz-column-count    : 2; /* Firefox */
+    -webkit-column-count : 2; /* Safari and Chrome */
+    column-count         : 2;
+    font-size: 86%;
+  }
+
 
 }
 
@@ -100,22 +113,11 @@
     margin      : -2em 0 0 0;
   }
 
-  /*=== Contents : pdf  video */
-
-  iframe.i3frame
-  { width : 95%; height : 480px; margin-left : auto; margin-right : auto; border : solid black; }
-
-  /* Images inside the Post : (author's images)
-  */
-  img.i3img
-  { width : 60%; margin-left : auto; margin-right : auto; }
-
-
 
   /*====== AUTHOR'S FOOTNOTES   */
   /*Subdivision for footer */
   /* Article footer notes (Entered after  \n___\n) */
-  hr.i3hr, hr.i3ndt
+  hr.i3hr
   {
     clear            : both;
     border-width     : 0;
@@ -128,6 +130,7 @@
     width            : 5%;
   }
 
+
   div.i3footer
   {
     font-family : sans-serif; font-size : 84%; font-stretch : normal;
@@ -136,33 +139,90 @@
     border-left : 2px solid #DDD;
     text-align  : left;
   }
+  div.i3footer>p
+  {
+      margin      : .5em 0;
+      padding     : 0 ;
+    line-height : 1.5em;
+  }
+}
+
+@media all, i3editor
+{
 
   /*====== EDITOR'S NOTES  */
   /*Subdivision for NdT/FOOTER
     Note: footer == div.i3ndt
   */
-  hr.i3ndt:after
+
+  hr.i3ndt
+  {
+    clear            : both;
+    border-width     : 0;
+    color            : #666; background-color : #666;
+    height           : 2px;
+    line-height      : 1em;
+    margin           : 3em 0 1em 0;
+    page-break-after : auto;
+    text-align       : right; /*Dans la largeur*/
+    width            : 5%;
+  }
+
+  :lang(fr) hr.i3ndt:after
   { content : "Notes:"; font-size : 72%; font-weight : bold; }
 
-  div.i3ndt,
-  footer.i3ndt
+  :lang(es) hr.i3ndt:after
+  { content : "Notas:"; font-size : 72%; font-weight : bold; }
+
+  footer p.i3ndt,
+  aside  p.i3ndt
   {
-    margin-left : 2.5em;
+    margin : 1em 2em;
+    padding : 1em 0 0;
     font-size   : 64%;
+    line-height : 1.5em;
     color       : gray;
   }
 
-  div.i3ndt > p:first-child,
-  footer.i3ndt > p:first-child
-  { margin-left : -1em;
-    margin-top  : 1.5em; }
-
-  div.i3ndt > p,
-  footer.i3ndt > p
-  { margin      : 0;
-    line-height : 1.5em !important; }
-
 }
+
+
+@media all, i3medias
+{
+    /*=== Contents : pdf  video */
+
+  /* Images inside the Post : (author's images)
+  */
+  img.lexcss,
+  img.i3img
+  { width : 60%; margin-left : auto; margin-right : auto; }
+
+  a.lexcss
+  {
+    /*font-size  : smaller;*/
+    background : #e2ebe2;
+  }
+
+  /* Use a div container to adjust size
+     See: https://www.h3xed.com/web-development/how-to-make-a-responsive-100-width-youtube-iframe-embed
+  */
+  div.i3frame
+  {
+    position: relative;
+    width: 64%;
+    height: 0;
+    padding-bottom: 56.25%;
+  }
+  iframe.i3frame,
+  iframe.lexcss
+  {
+    position: absolute;
+    width : 100%;
+    height : 100%;
+  }
+}
+
+
 
 @media all, i3statics
 {
@@ -240,6 +300,7 @@
 
 }
 
+
 @media all, i3typography
 {
 
@@ -250,7 +311,7 @@
   h1
   { font-size : 160%; padding : 0.5em; }
 
-  h2
+  h2,
   .article-content h2
   { font-size : 130%; padding : 1.5em 0; }
 
@@ -446,8 +507,6 @@
   { text-decoration : underline; }
 
 }
-
-
 
 
 
