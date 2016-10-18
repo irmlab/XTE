@@ -43,24 +43,22 @@
   #toc-main ol,
   #toc ol
   {
-    padding-left: 2em;
-    list-style : inside;
+    padding-left : 2em;
+    list-style   : inside;
   }
 
   #toc-post ol
-  { list-style : inside;
+  { list-style           : inside;
     -moz-column-count    : 2; /* Firefox */
     -webkit-column-count : 2; /* Safari and Chrome */
     column-count         : 2;
-    font-size: 86%;
+    font-size            : 86%;
   }
-
 
 }
 
 @media all, i3layout
 {
-
 
   /*=== DATATION + SEPARATORS + FOONOTES */
   /* PPCCDate information.: */
@@ -92,25 +90,23 @@
     text-align : justify;
   }
 
+  /* Bilingual Version Source */
+  .i3postVS
+  {
+    text-align           : left;
+    color                : #666;
+    font-size            : 86%;
+    -moz-column-count    : 2; /* Firefox */
+    -webkit-column-count : 2; /* Safari and Chrome */
+    column-count         : 2;
+  }
 
-/* Bilingual Version Source */
-.i3postVS
-{
-  text-align           : left;
-  color                : #666;
-  font-size            : 86%;
-  -moz-column-count    : 2; /* Firefox */
-  -webkit-column-count : 2; /* Safari and Chrome */
-  column-count         : 2;
-}
-
-/* Bilingual Version Target  */
-.i3postVT
-{
-  padding    : 1em;
-  text-align: left;
-}
-
+  /* Bilingual Version Target  */
+  .i3postVT
+  {
+    padding    : 1em;
+    text-align : left;
+  }
 
   /*====== AUTHOR'S COMMENT CONCATENATOR  */
   hr.i3concat
@@ -156,10 +152,11 @@
     border-left : 2px solid #DDD;
     text-align  : left;
   }
-  div.i3footer>p
+
+  div.i3footer > p
   {
-      margin      : .5em 0;
-      padding     : 0 ;
+    margin      : .5em 0 0 0;
+    padding     : 0;
     line-height : 1.5em;
   }
 }
@@ -171,6 +168,8 @@
   /*Subdivision for NdT/FOOTER
     Note: footer == div.i3ndt
   */
+  sup > a:link
+  { text-decoration-line : none; }
 
   hr.i3ndt
   {
@@ -192,10 +191,11 @@
   { content : "Notas:"; font-size : 72%; font-weight : bold; }
 
   footer p.i3ndt,
-  aside  p.i3ndt
+  aside p.i3ndt
   {
-    margin : 1em 2em;
-    padding : 1em 0 0;
+    margin      : 1em 3em 0 2.5em;
+    text-indent : -1em;
+    padding     : 0;
     font-size   : 64%;
     line-height : 1.5em;
     color       : gray;
@@ -203,11 +203,9 @@
 
 }
 
-
 @media all, i3medias
 {
-    /*=== Contents : pdf  video */
-
+  /*=== Contents : pdf  video */
   /* Images inside the Post : (author's images)
   */
   img.lexcss,
@@ -225,21 +223,20 @@
   */
   div.i3frame
   {
-    position: relative;
-    width: 64%;
-    height: 0;
-    padding-bottom: 56.25%;
+    position       : relative;
+    width          : 64%;
+    height         : 0;
+    padding-bottom : 56.25%;
   }
+
   iframe.i3frame,
   iframe.lexcss
   {
-    position: absolute;
-    width : 100%;
-    height : 100%;
+    position : absolute;
+    width    : 100%;
+    height   : 100%;
   }
 }
-
-
 
 @media all, i3statics
 {
@@ -316,7 +313,6 @@
   }
 
 }
-
 
 @media all, i3typography
 {
@@ -501,7 +497,6 @@
   .vspacer4
   { padding-top : 4em; }
 
-
   /*========== QUOTES */
   /*http://www.w3schools.com/charsets/ref_utf_punctuation.asp*/
   /* thinsp= hex=\2009 &#8239;
@@ -525,14 +520,12 @@
 
 }
 
-
 @media screen, i3WEBbuttons
 {
 
-/*===========  IN3ACTIVE BUTTONS STYLES
- Using tag <a>
-*/
-
+  /*===========  IN3ACTIVE BUTTONS STYLES
+   Using tag <a>
+  */
   .i3buttons
   {
     overflow   : visible; /* removes extra side spacing in IE */
@@ -608,9 +601,9 @@
 @media screen, i3WEBuserforms
 {
 
-/*===========  FORM ITEMS
-http://www.w3schools.com/html/html_colornames.asp
-*/
+  /*===========  FORM ITEMS
+  http://www.w3schools.com/html/html_colornames.asp
+  */
   .i3form
   { width : 96%; }
 
@@ -697,23 +690,22 @@ http://www.w3schools.com/html/html_colornames.asp
 }
 
 @media screen, i3WEBtabs
- {
-/*===========  TABED DIALOGS
- * "Yet Another Multicolumn Layout" - YAML CSS Framework
- *
- * (en) Styles for Accessible-Tabs plugin for jQuery
- * (de) Gestaltung des Acessible-Tabs Plugins für jQuery
- *
- * @copyright       Copyright 2005-2012, Dirk Jesse
- * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
- *                  YAML-CDL (http://www.yaml.de/license.html)
- * @link            http://www.yaml.de
- * @package         yaml
- * @version         v4.0.1
- * @revision        $Revision: 724 $
- * @lastmodified    $Date: 2012-03-03 11:45:41 +0100 (Sa, 03 Mrz 2012) $
- */
-
+{
+  /*===========  TABED DIALOGS
+   * "Yet Another Multicolumn Layout" - YAML CSS Framework
+   *
+   * (en) Styles for Accessible-Tabs plugin for jQuery
+   * (de) Gestaltung des Acessible-Tabs Plugins für jQuery
+   *
+   * @copyright       Copyright 2005-2012, Dirk Jesse
+   * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+   *                  YAML-CDL (http://www.yaml.de/license.html)
+   * @link            http://www.yaml.de
+   * @package         yaml
+   * @version         v4.0.1
+   * @revision        $Revision: 724 $
+   * @lastmodified    $Date: 2012-03-03 11:45:41 +0100 (Sa, 03 Mrz 2012) $
+   */
   .jquery_tabs
   {
     margin : 1em 2em;
@@ -856,7 +848,7 @@ http://www.w3schools.com/html/html_colornames.asp
   { /*zoom : 1;*/ width : auto; position : relative; }
 
   * + html .jquery_tabs
-  { /*zoom : 1; */width : auto; }
+  { /*zoom : 1; */ width : auto; }
 
   .jquery_tabs *
   { /*zoom : 1;*/ }
