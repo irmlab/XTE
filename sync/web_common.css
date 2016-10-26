@@ -49,8 +49,10 @@
 
   #toc-post ol
   { list-style           : inside;
+/*EPUB_NOCOPY*/
     -moz-column-count    : 2; /* Firefox */
     -webkit-column-count : 2; /* Safari and Chrome */
+/*EPUB_DONE*/
     column-count         : 2;
     font-size            : 86%;
   }
@@ -80,7 +82,7 @@
     position    : relative;
     overflow    : visible !important; /*Ensures spacer in blogger */
     /*text-align: left;*/
-    word-break  : normal;
+    /*word-break  : normal;*/
   }
 
   /* Monoligual (EPUB) */
@@ -96,8 +98,10 @@
     text-align           : left;
     color                : #666;
     font-size            : 86%;
+/*EPUB_NOCOPY*/
     -moz-column-count    : 2; /* Firefox */
     -webkit-column-count : 2; /* Safari and Chrome */
+/*EPUB_DONE*/
     column-count         : 2;
   }
 
@@ -169,7 +173,7 @@
     Note: footer == div.i3ndt
   */
   sup > a:link
-  { text-decoration-line : none; }
+  { text-decoration : none; }
 
   hr.i3ndt
   {
@@ -240,13 +244,35 @@
 
 @media all, i3statics
 {
-  /*===========  StaticTables   */
+  /*===========  StaticTables
+  For colors:
+  http://www.colors.commutercreative.com/grid/
+  */
+
+
+
+  /*List of terms in source language*/
+  div.i3jumps
+  {
+    margin-left          : auto;
+    margin-right         : auto;
+    width                : 86%;
+    text-align           : left;
+    color                : #666;
+    font-size            : 74%;
+/*EPUB_NOCOPY*/
+    -moz-column-count    : 3; /* Firefox */
+    -webkit-column-count : 3; /* Safari and Chrome */
+/*EPUB_DONE*/
+    column-count         : 3;
+  }
+
   table
   {
     margin-left  : auto;
     margin-right : auto;
-    width        : 92%;
-    background   : #fffdea;
+    width        : 96%;
+    background   : snow;
   }
 
   td:nth-child(odd) /* colonne gauche DT */
@@ -256,8 +282,8 @@
     font           : normal 1em/1.5em Arial, Helvetica;
     font-size      : 84%;
     font-weight    : bold;
-    width          : 25%;
-    background     : #e4ede4;
+    width          : 20%;
+    background     : AliceBlue;
     text-align     : right;
     vertical-align : top;
   }
@@ -270,7 +296,7 @@
   }
 
   /* Glossary : first line with source terms is inside span */
-  td:nth-child(even) > span /* version bilingue : la premiere ligne est le mot espagnol */
+  td:nth-child(even) > span /* la version bilingue use <span> pour le mot espagnol */
   {
     font-style  : italic;
     line-height : 2em;
@@ -282,19 +308,6 @@
   td li
   { margin : 0.5em 0; }
 
-  /*List of terms in source language*/
-  div.i3jumps
-  {
-    margin-left          : auto;
-    margin-right         : auto;
-    width                : 86%;
-    text-align           : left;
-    color                : #666;
-    font-size            : 74%;
-    -moz-column-count    : 3; /* Firefox */
-    -webkit-column-count : 3; /* Safari and Chrome */
-    column-count         : 3;
-  }
 
   /*===========  Static Navigation button */
   div.i3nav
@@ -338,7 +351,7 @@
   { font-size : 100%; padding : 0; text-align : center; }
 
   :link
-  { text-decoration-line : none; }
+  { text-decoration : none; }
 
   /*====
   */
@@ -453,7 +466,7 @@
     font-variant : normal;
     font-weight  : bold;
     /*display      : block;*/
-    padding      : 0.5em;
+    padding      : 0.1em;       /* or 2px -- otherwise the boxes overlap */
     border       : 0.1em solid;
     /*border-left       : 0.1em solid;*/
     /*border-bottom       : 0.1em solid;*/
