@@ -1,4 +1,218 @@
 /*===========  CSS-COMMON */
+
+@media all, i3typography
+{
+  body
+  {
+    font-variant : normal;
+    font-family  : Calibri, Arial, serif;
+  }
+
+
+  /*====== INLINE STYLES */
+  h1, h2, h3, h4, h5
+  { margin-top : 0; margin-bottom : 0; text-align : left; }
+
+  h1
+  { font-size : 160%; padding : 0.5em; }
+
+  h2,
+  .article-content h2
+  { font-size : 130%; padding : 1.5em 0; }
+
+  h3
+  { font-size : 116%; padding-top : 0.5em; }
+
+  h4
+  { font-size : 100%; padding-top : 0.5em; }
+
+  h5
+  { font-size : 100%; padding : 0; text-align : center; }
+
+  :link
+  { text-decoration : none; }
+
+  /*====
+  */
+  span.i3title
+  {
+    font-variant : normal;
+    font-family  : "Arial Narrow", Calibri, serif;
+    color        : grey;
+  }
+
+  /*====== PARAGRAPHS  */
+  /* Introductory line for 1st paragraph in Article, similar to newspapers.*/
+  p.intro:first-line
+  { font-variant : small-caps; font-size : 110%; }
+
+  /* Drop capital on each paragraph with this class */
+  p.drop:first-letter
+  {
+    font-size    : 160%;
+    margin-right : 0.05em;
+  }
+
+  /* PostScriptum style PS:, P.-S.: */
+  span.i3notes
+  { font-variant : small-caps; font-weight : bold; text-align : left; }
+
+  /* Normal Indentation for pargs with a) 1) */
+  p.i3indent
+  { margin : 0.5em 1em; }
+
+  /* Sub Indentation for pargs --  */
+  p.i3indent2
+  { margin : 0.5em 2em !important; text-align : left; }
+
+  p.i3indent3
+  { margin : 0.5em 3em !important; text-align : left; }
+
+  /* 201306281226 -- Dégage les paragraphes après un indent */
+  /*201307120645 -- Carte PIB·D */
+  :not(p) + p.i3indent,
+  p.i3indent + p:not(.i3indent),
+  p.i3indent2 + p:not(.i3indent2)
+  { margin-top : 1.5em; }
+
+  /*====== POETRY  using blockquote (BBCOde tt) */
+  blockquote
+  {
+    padding     : 0; margin : 0;
+    font-family : "Palatino Linotype", Georgia, serif;
+    font-size   : 90%;
+    text-align  : left;
+  }
+
+  div.i3postVS blockquote > h3,
+  div.i3postVS blockquote > p,
+  div.i3postVS blockquote > p.drop,
+  div.i3postVS blockquote > p.i3indent,
+  div.i3postVS blockquote > p.i3indent2,
+  div.i3postVS blockquote > p.i3indent3
+  {
+    padding-left : 3em !important;
+    margin       : 0.5em 0 0 2em !important;
+  }
+
+  div.i3postVT blockquote > h3,
+  div.i3postVT blockquote > p,
+  div.i3postVT blockquote > p.drop,
+  div.i3postVT blockquote > p.i3indent,
+  div.i3postVT blockquote > p.i3indent2,
+  div.i3postVT blockquote > p.i3indent3
+  {
+    padding-left : 4em !important;
+    margin       : 0.5em 0 0 3em !important;
+  }
+
+  div.i3postVS blockquote > p.drop:first-letter
+  {
+    font-size  : 160%;
+    margin-top : 0.2em;
+  }
+
+  div.i3postVT blockquote > p.drop:first-letter
+  {
+    font-size  : 160%;
+    margin-top : 0.05em;
+  }
+
+  /*====== INLINE BRACKET SYNTAX
+  -- [blabla]
+  -- (=blabla)  with syntax <span class=i3bracket>..</span>
+  -- [TITLES]   with syntax <h2><span class=i3bracket>
+  Note: the Concatenation syntax uses div.i3concat
+  */
+  span.i3bracket
+  {
+    font-variant : normal;
+    font-family  : "Arial Narrow", Calibri, serif;
+    color        : grey;
+  }
+
+  /* les combinaisons de span utilisent le font environnant */
+  span > span.i3bracket
+  {
+    font-family : inherit;
+    color       : inherit;
+  }
+
+  /*====== INLINE FORMULAS   */
+  /* PIB-3D formulas when it contains '=' */
+  span.i3formula
+  {
+    font-variant : normal;
+    font-weight  : bold;
+    /*display      : block;*/
+    padding      : 0.1em;       /* or 2px -- otherwise the boxes overlap */
+    border       : 0.1em solid;
+    /*border-left       : 0.1em solid;*/
+    /*border-bottom       : 0.1em solid;*/
+  }
+
+  span.i3formulasub
+  {
+    font-variant : normal;
+    font-weight  : bold;
+    padding      : 0 0.5em;
+    border-left  : 0.1em solid;
+    font-family  : "Calibri", serif;
+  }
+
+  /* PIB-3D operand definitions: always follow i3formula */
+  span.i3operand
+  {
+    font-variant : normal;
+    font-weight  : bold;
+  }
+
+  /*===========  Typography  */
+  .i3clear
+  { clear : both; }
+
+  .hspacer1
+  { display : inline; padding-left : 1em; }
+
+  .hspacer2
+  { display : inline; padding-left : 2em; }
+
+  .hspacer4
+  { display : inline; padding-left : 4em; }
+
+  .vspacer1
+  { padding-top : 1em; }
+
+  .vspacer2
+  { padding-top : 2em; }
+
+  .vspacer4
+  { padding-top : 4em; }
+
+  /*========== QUOTES */
+  /*http://www.w3schools.com/charsets/ref_utf_punctuation.asp*/
+  /* thinsp= hex=\2009 &#8239;
+  /* The quote of unicode works as is in blogger */
+  /*div[lang|='FR'] q,*/
+  /*q:lang(fr),*/
+  :lang(fr) q
+  { font-style : italic; quotes : "«\A0" "\A0»" "\201c" "\201d"; }
+
+  /*{ font-style : italic; quotes : '\AB\A0' '\A0\BB' "'" "'"; }*/
+  /*{ font-style : italic; quotes : "\AB\A0" "\A0\BB" "\201c" "\201d"; }*/
+  /*{ font-style : italic; quotes : "\AB\2009" "\2009\BB" "\201c" "\201d"; }*/
+  /*div[lang|='ES'] q,*/
+  /*q:lang(es),*/
+  :lang(es) q
+  { font-style : italic; quotes : '\AB' '\BB' '\201c' '\201d'; }
+
+  /*Single emphasis inside quote */
+  q > EM, EM > EM
+  { text-decoration : underline; }
+
+}
+
+
 @media all, i3sections
 {
   /*===========  STRUCTURE OBJECTS */
@@ -272,7 +486,7 @@
     margin-left  : auto;
     margin-right : auto;
     width        : 96%;
-    background   : LightYellow;
+    background   : Cornsilk ;
   }
 
   td:nth-child(odd) /* colonne gauche DT */
@@ -283,7 +497,9 @@
     font-size      : 84%;
     font-weight    : bold;
     width          : 20%;
-    background     : AliceBlue;
+/*The WEB version color ! */
+    background     : LightYellow ;
+/*EPUB_DONE*/
     text-align     : right;
     vertical-align : top;
   }
@@ -324,212 +540,6 @@
     color            : #666 !important;
     background-color : whiteSmoke; /* #EEE;*/
   }
-
-}
-
-@media all, i3typography
-{
-
-  /*====== INLINE STYLES */
-  h1, h2, h3, h4, h5
-  { margin-top : 0; margin-bottom : 0; text-align : left; }
-
-  h1
-  { font-size : 160%; padding : 0.5em; }
-
-  h2,
-  .article-content h2
-  { font-size : 130%; padding : 1.5em 0; }
-
-  h3
-  { font-size : 116%; padding-top : 0.5em; }
-
-  h4
-  { font-size : 100%; padding-top : 0.5em; }
-
-  h5
-  { font-size : 100%; padding : 0; text-align : center; }
-
-  :link
-  { text-decoration : none; }
-
-  /*====
-  */
-  span.i3title
-  {
-    font-variant : normal;
-    font-family  : "Arial Narrow", Calibri, serif;
-    color        : grey;
-  }
-
-  /*====== PARAGRAPHS  */
-  /* Introductory line for 1st paragraph in Article, similar to newspapers.*/
-  p.intro:first-line
-  { font-variant : small-caps; font-size : 110%; }
-
-  /* Drop capital on each paragraph with this class */
-  p.drop:first-letter
-  {
-    font-size    : 160%;
-    margin-right : 0.05em;
-  }
-
-  /* PostScriptum style PS:, P.-S.: */
-  span.i3notes
-  { font-variant : small-caps; font-weight : bold; text-align : left; }
-
-  /* Normal Indentation for pargs with a) 1) */
-  p.i3indent
-  { margin : 0.5em 1em; }
-
-  /* Sub Indentation for pargs --  */
-  p.i3indent2
-  { margin : 0.5em 2em !important; text-align : left; }
-
-  p.i3indent3
-  { margin : 0.5em 3em !important; text-align : left; }
-
-  /* 201306281226 -- Dégage les paragraphes après un indent */
-  /*201307120645 -- Carte PIB·D */
-  :not(p) + p.i3indent,
-  p.i3indent + p:not(.i3indent),
-  p.i3indent2 + p:not(.i3indent2)
-  { margin-top : 1.5em; }
-
-  /*====== POETRY  using blockquote (BBCOde tt) */
-  blockquote
-  {
-    padding     : 0; margin : 0;
-    font-family : "Palatino Linotype", Georgia, serif;
-    font-size   : 90%;
-    text-align  : left;
-  }
-
-  div.i3postVS blockquote > h3,
-  div.i3postVS blockquote > p,
-  div.i3postVS blockquote > p.drop,
-  div.i3postVS blockquote > p.i3indent,
-  div.i3postVS blockquote > p.i3indent2,
-  div.i3postVS blockquote > p.i3indent3
-  {
-    padding-left : 3em !important;
-    margin       : 0.5em 0 0 2em !important;
-  }
-
-  div.i3postVT blockquote > h3,
-  div.i3postVT blockquote > p,
-  div.i3postVT blockquote > p.drop,
-  div.i3postVT blockquote > p.i3indent,
-  div.i3postVT blockquote > p.i3indent2,
-  div.i3postVT blockquote > p.i3indent3
-  {
-    padding-left : 4em !important;
-    margin       : 0.5em 0 0 3em !important;
-  }
-
-  div.i3postVS blockquote > p.drop:first-letter
-  {
-    font-size  : 160%;
-    margin-top : 0.2em;
-  }
-
-  div.i3postVT blockquote > p.drop:first-letter
-  {
-    font-size  : 160%;
-    margin-top : 0.05em;
-  }
-
-  /*====== INLINE BRACKET SYNTAX
-  -- [blabla]
-  -- (=blabla)  with syntax <span class=i3bracket>..</span>
-  -- [TITLES]   with syntax <h2><span class=i3bracket>
-  Note: the Concatenation syntax uses div.i3concat
-  */
-  span.i3bracket
-  {
-    font-variant : normal;
-    font-family  : "Arial Narrow", Calibri, serif;
-    color        : grey;
-  }
-
-  /* les combinaisons de span utilisent le font environnant */
-  span > span.i3bracket
-  {
-    font-family : inherit;
-    color       : inherit;
-  }
-
-  /*====== INLINE FORMULAS   */
-  /* PIB-3D formulas when it contains '=' */
-  span.i3formula
-  {
-    font-variant : normal;
-    font-weight  : bold;
-    /*display      : block;*/
-    padding      : 0.1em;       /* or 2px -- otherwise the boxes overlap */
-    border       : 0.1em solid;
-    /*border-left       : 0.1em solid;*/
-    /*border-bottom       : 0.1em solid;*/
-  }
-
-  span.i3formulasub
-  {
-    font-variant : normal;
-    font-weight  : bold;
-    padding      : 0 0.5em;
-    border-left  : 0.1em solid;
-    font-family  : "Calibri", serif;
-  }
-
-  /* PIB-3D operand definitions: always follow i3formula */
-  span.i3operand
-  {
-    font-variant : normal;
-    font-weight  : bold;
-  }
-
-  /*===========  Typography  */
-  .i3clear
-  { clear : both; }
-
-  .hspacer1
-  { display : inline; padding-left : 1em; }
-
-  .hspacer2
-  { display : inline; padding-left : 2em; }
-
-  .hspacer4
-  { display : inline; padding-left : 4em; }
-
-  .vspacer1
-  { padding-top : 1em; }
-
-  .vspacer2
-  { padding-top : 2em; }
-
-  .vspacer4
-  { padding-top : 4em; }
-
-  /*========== QUOTES */
-  /*http://www.w3schools.com/charsets/ref_utf_punctuation.asp*/
-  /* thinsp= hex=\2009 &#8239;
-  /* The quote of unicode works as is in blogger */
-  /*div[lang|='FR'] q,*/
-  /*q:lang(fr),*/
-  :lang(fr) q
-  { font-style : italic; quotes : "«\A0" "\A0»" "\201c" "\201d"; }
-
-  /*{ font-style : italic; quotes : '\AB\A0' '\A0\BB' "'" "'"; }*/
-  /*{ font-style : italic; quotes : "\AB\A0" "\A0\BB" "\201c" "\201d"; }*/
-  /*{ font-style : italic; quotes : "\AB\2009" "\2009\BB" "\201c" "\201d"; }*/
-  /*div[lang|='ES'] q,*/
-  /*q:lang(es),*/
-  :lang(es) q
-  { font-style : italic; quotes : '\AB' '\BB' '\201c' '\201d'; }
-
-  /*Single emphasis inside quote */
-  q > EM, EM > EM
-  { text-decoration : underline; }
 
 }
 
