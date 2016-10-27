@@ -272,7 +272,7 @@
     margin-left  : auto;
     margin-right : auto;
     width        : 96%;
-    background   : snow;
+    background   : LightYellow;
   }
 
   td:nth-child(odd) /* colonne gauche DT */
