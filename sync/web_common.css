@@ -486,7 +486,7 @@
     margin-left  : auto;
     margin-right : auto;
     width        : 96%;
-    background   : Cornsilk ;
+    background   : #FFFFF8     ;      /* Based on LightYellow*/
   }
 
   td:nth-child(odd) /* colonne gauche DT */
@@ -495,10 +495,10 @@
     padding        : 1em;
     font           : normal 1em/1.5em Arial, Helvetica;
     font-size      : 84%;
-    font-weight    : bold;
+    font-weight    : normal;
     width          : 20%;
 /*The WEB version color ! */
-    background     : GhostWhite ;
+    background     : GhostWhite;
 /*EPUB_DONE*/
     text-align     : right;
     vertical-align : top;
