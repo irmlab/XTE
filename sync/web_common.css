@@ -717,9 +717,10 @@
 	dd > div > span /* la version bilingue use <span> pour le mot espagnol */
 	{
 		font-style  : italic;
-		line-height : 2;
+		font-size   : 90%;
+		font-family: "Arial", Georgia, serif;
 		padding-top : 0;
-		background  : rgba(0, 188, 187, 0.33);
+		background  : rgba(0, 188, 187, 0.14);
 	}
   
 	
