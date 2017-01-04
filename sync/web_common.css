@@ -1,934 +1,1166 @@
+/*!
+   Protected(C1) 2016, irmlab.com
+
+ */
+
 /*===========  CSS-COMMON */
 
 @media all, i3typography
 {
-  body
-  {
-    font-variant : normal;
-    font-family  : Calibri, Arial, serif;
-  }
-
-
-  /*====== INLINE STYLES */
-  h1, h2, h3, h4, h5
-  { margin-top : 0; margin-bottom : 0;  }
-
-  h1
-  { font-size : 160%; padding : 0.5em; }
-
-  h2  /* use with header in static pages */
-  { font-size : 130%; padding : 1.5em 0; }
-
-  h3
-  { font-size : 116%; padding-top : 0.5em; }
-
-  h4
-  { font-size : 100%; padding-top : 0.5em; }
-
-  h5
-  { font-size : 100%; padding : 0; }
-
-  :link
-  { text-decoration : none; }
-
-  /*====
-  */
-  span.i3title
-  {
-    font-variant : normal;
-    font-family  : "Arial Narrow", Calibri, serif;
-    color        : grey;
-  }
-  h2.i3title
-  {
-    font-variant : normal;
-    font-family  : "Arial Narrow", Calibri, serif;
-    color        : grey;
-    text-align: left;
-  }
-
-
-  /*====== PARAGRAPHS  */
-  /* Introductory line for 1st paragraph in Article, similar to newspapers.*/
-  p.intro:first-line
-  { font-variant : small-caps; font-size : 110%; }
-
-  /* Drop capital on each paragraph with this class */
-  p.drop:first-letter
-  {
-    font-size    : 160%;
-    margin-right : 0.05em;
-  }
-
-  /* PostScriptum style PS:, P.-S.: */
-  span.i3notes
-  { font-variant : small-caps; font-weight : bold; text-align : left; }
-
-  /* Normal Indentation for pargs with a) 1) */
-  p.i3indent
-  { margin : 0.5em 1em; }
-
-  /* Sub Indentation for pargs --  */
-  p.i3indent2
-  { margin : 0.5em 2em !important; text-align : left; }
-
-  p.i3indent3
-  { margin : 0.5em 3em !important; text-align : left; }
-
-  /* 201306281226 -- Dégage les paragraphes après un indent */
-  /*201307120645 -- Carte PIB·D */
-  :not(p) + p.i3indent,
-  p.i3indent + p:not(.i3indent),
-  p.i3indent2 + p:not(.i3indent2)
-  { margin-top : 1.5em; }
-
-  /*====== POETRY  using blockquote (BBCOde tt) */
-  blockquote
-  {
-    display: block;
-    padding     : 0; margin : 0;
-    font-family : "Palatino Linotype", Georgia, serif;
-    font-size   : 90%;
-    text-align  : left;
-  }
-
-  div.i3postVS blockquote > h3,
-  div.i3postVS blockquote > p,
-  div.i3postVS blockquote > p.drop,
-  div.i3postVS blockquote > p.i3indent,
-  div.i3postVS blockquote > p.i3indent2,
-  div.i3postVS blockquote > p.i3indent3
-  {
-    padding-left : 0 !important;
-    margin       : 0.5em 0 0 2em !important;
-  }
-
-  div.i3postVT blockquote > h3,
-  div.i3postVT blockquote > p,
-  div.i3postVT blockquote > p.drop,
-  div.i3postVT blockquote > p.i3indent,
-  div.i3postVT blockquote > p.i3indent2,
-  div.i3postVT blockquote > p.i3indent3
-  {
-    padding-left : 4em !important;
-    margin       : 0.5em 0 0 3em !important;
-  }
-
-  div.i3postVS blockquote > p.drop:first-letter
-  {
-    font-size  : 160%;
-    margin-top : 0.2em;
-  }
-
-  div.i3postVT blockquote > p.drop:first-letter
-  {
-    font-size  : 160%;
-    margin-top : 0.05em;
-  }
-
-  /*====== INLINE BRACKET SYNTAX
-  -- [blabla]
-  -- (=blabla)  with syntax <span class=i3bracket>..</span>
-  -- [TITLES]   with syntax <h2><span class=i3bracket>
-  Note: the Concatenation syntax uses div.i3concat
-  */
-  span.i3bracket
-  {
-    font-variant : normal;
-    font-family  : "Arial Narrow", Calibri, serif;
-    color        : grey;
-  }
-
-  /* les combinaisons de span utilisent le font environnant */
-  span > span.i3bracket
-  {
-    font-family : inherit;
-    color       : inherit;
-  }
-
-  /*====== INLINE FORMULAS   */
-  /* PIB-3D formulas when it contains '=' */
-  span.i3formula
-  {
-    font-variant : normal;
-    font-weight  : bold;
-    /*display      : block;*/
-    padding      : 0.1em;       /* or 2px -- otherwise the boxes overlap */
-    border       : 0.1em solid;
-    /*border-left       : 0.1em solid;*/
-    /*border-bottom       : 0.1em solid;*/
-  }
-
-  span.i3formulasub
-  {
-    font-variant : normal;
-    font-weight  : bold;
-    padding      : 0 0.5em;
-    border-left  : 0.1em solid;
-    font-family  : "Calibri", serif;
-  }
-
-  /* PIB-3D operand definitions: always follow i3formula */
-  span.i3operand
-  {
-    font-variant : normal;
-    font-weight  : bold;
-  }
-
-  /*===========  Typography  */
-  .i3clear
-  { clear : both; }
-
-  .hspacer1
-  { display : inline; padding-left : 1em; }
-
-  .hspacer2
-  { display : inline; padding-left : 2em; }
-
-  .hspacer4
-  { display : inline; padding-left : 4em; }
-
-  .vspacer1
-  { padding-top : 1em; }
-
-  .vspacer2
-  { padding-top : 2em; }
-
-  .vspacer4
-  { padding-top : 4em; }
-
-  /*========== QUOTES */
-  /*http://www.w3schools.com/charsets/ref_utf_punctuation.asp*/
-  /* thinsp= hex=\2009 &#8239;
-  /* The quote of unicode works as is in blogger */
-  /*div[lang|='FR'] q,*/
-  /*q:lang(fr),*/
-  :lang(fr) q
-  { font-style : italic; quotes : "«\A0" "\A0»" "\201c" "\201d"; }
-
-  /*{ font-style : italic; quotes : '\AB\A0' '\A0\BB' "'" "'"; }*/
-  /*{ font-style : italic; quotes : "\AB\A0" "\A0\BB" "\201c" "\201d"; }*/
-  /*{ font-style : italic; quotes : "\AB\2009" "\2009\BB" "\201c" "\201d"; }*/
-  /*div[lang|='ES'] q,*/
-  /*q:lang(es),*/
-  :lang(es) q
-  { font-style : italic; quotes : '\AB' '\BB' '\201c' '\201d'; }
-
-  /*Single emphasis inside quote */
-  q > EM, EM > EM
-  { text-decoration : underline; }
-
+	
+	/*=== INLINE STYLES */
+	/* Important: inherit allow to manage the alignement in Static pages using dot-syntax (<DIV style='text-align'>)*/
+	h1, h2, h3, h4, h5
+	{
+		margin-top    : 0;
+		margin-bottom : 0;
+	}
+	
+	h1
+	{
+		font-size : 160%;
+		padding   : 0.5em;
+	}
+	
+	h2 /* use with header in static pages */
+	{
+		font-size : 130%;
+		padding   : 1.5em 0;
+	}
+	
+	h3
+	{
+		font-size   : 116%;
+		padding-top : 0.5em;
+	}
+	
+	h4
+	{
+		font-size   : 100%;
+		padding-top : 0.5em;
+	}
+	
+	h5
+	{
+		font-size : 100%;
+		padding   : 0;
+	}
+	
+	:link
+	{
+		text-decoration : none;
+	}
+	
+	/*====
+	*/
+	h2.i3title
+	{
+		font-variant : normal;
+		font-family  : "Arial Narrow", Calibri, serif;
+		color        : grey;
+		text-align   : left;
+	}
+	
+	/*====== PARAGRAPHS  */
+	/* Introductory line for 1st paragraph in Article, similar to newspapers.*/
+	p.intro:first-line
+	{
+		font-variant : small-caps;
+		font-size    : 110%;
+	}
+	
+	/* Drop capital on each paragraph with this class */
+	p.drop:first-letter
+	{
+		font-size    : 160%;
+		margin-right : 0.05em;
+	}
+	
+	/* PostScriptum style PS:, P.-S.: */
+	span.i3notes
+	{
+		font-variant : small-caps;
+		font-weight  : bold;
+		text-align   : left;
+	}
+	
+	/* Normal Indentation for pargs with a) 1) */
+	p.i3indent
+	{
+		margin            : 0.5em 1em;
+		text-align        : left;
+		page-break-inside : avoid;
+	}
+	
+	/* Sub Indentation for pargs --  */
+	p.i3indent2
+	{
+		margin     : 0.5em 2em !important;
+		text-align : left;
+	}
+	
+	p.i3indent3
+	{
+		margin     : 0.5em 3em !important;
+		text-align : left;
+	}
+	
+	/* 201306281226 -- Dégage les paragraphes après un indent */
+	/*201307120645 -- Carte PIB·D */
+	:not(p) + p.i3indent,
+	p.i3indent + p:not(.i3indent),
+	p.i3indent2 + p:not(.i3indent2)
+	{
+		margin-top : 1.5em;
+	}
+	
+	/*====== POETRY  using blockquote (BBCOde tt) */
+	blockquote
+	{
+		display     : block;
+		padding     : 0;
+		margin      : 0;
+		font-family : "Palatino Linotype", Georgia, serif;
+		font-size   : 90%;
+		text-align  : left;
+	}
+	
+	div.i3postVS blockquote > h3,
+	div.i3postVS blockquote > p,
+	div.i3postVS blockquote > p.drop,
+	div.i3postVS blockquote > p.i3indent,
+	div.i3postVS blockquote > p.i3indent2,
+	div.i3postVS blockquote > p.i3indent3
+	{
+		padding-left : 3em !important;
+		margin       : 0.5em 0 0 2em !important;
+	}
+	
+	div.i3postVT blockquote > h3,
+	div.i3postVT blockquote > p,
+	div.i3postVT blockquote > p.drop,
+	div.i3postVT blockquote > p.i3indent,
+	div.i3postVT blockquote > p.i3indent2,
+	div.i3postVT blockquote > p.i3indent3
+	{
+		padding-left : 4em !important;
+		margin       : 0.5em 0 0 3em !important;
+	}
+	
+	div.i3postVS blockquote > p.drop:first-letter
+	{
+		font-size  : 160%;
+		margin-top : 0.2em;
+	}
+	
+	div.i3postVT blockquote > p.drop:first-letter
+	{
+		font-size  : 160%;
+		margin-top : 0.05em;
+	}
+	
+	/*====== INLINE BRACKET SYNTAX
+	-- [blabla]
+	-- (=blabla)  with syntax <span class=i3bracket>..</span>
+	-- [TITLES]   with syntax <h2><span class=i3bracket>
+	Note: the Concatenation syntax uses div.i3concat
+	*/
+	span.i3bracket
+	{
+		font-variant : normal;
+		font-family  : "Arial Narrow", Calibri, serif;
+		color        : grey;
+	}
+	
+	/* les combinaisons de span utilisent le font environnant */
+	span > span.i3bracket
+	{
+		font-family : inherit;
+		color       : inherit;
+	}
+	
+	/*====== INLINE FORMULAS   */
+	/* PIB-3D formulas when it contains '=' */
+	span.i3formula
+	{
+		page-break-inside : avoid;
+		page-break-after  : avoid;
+		page-break-before : avoid;
+		
+		text-align        : left;
+		font-variant      : normal;
+		font-weight       : bold;
+		/*display      : block;*/
+		padding           : 0.1em; /* or 2px -- otherwise the boxes overlap */
+		border            : 0.1em solid;
+		/*border-left       : 0.1em solid;*/
+		/*border-bottom       : 0.1em solid;*/
+	}
+	
+	span.i3formulasub
+	{
+		page-break-inside : avoid;
+		page-break-after  : avoid;
+		page-break-before : avoid;
+		
+		text-align        : left;
+		font-variant      : normal;
+		font-weight       : bold;
+		padding           : 0 0.5em;
+		border-left       : 0.1em solid;
+		font-family       : "Calibri", serif;
+	}
+	
+	/* PIB-3D operand definitions: always follow i3formula */
+	span.i3operand
+	{
+		text-align   : left;
+		font-variant : normal;
+		font-weight  : bold;
+	}
+	
+	/*===========  Typography  */
+	.i3clear
+	{
+		clear : both;
+	}
+	
+	.hspacer1
+	{
+		display      : inline;
+		padding-left : 1em;
+	}
+	
+	.hspacer2
+	{
+		display      : inline;
+		padding-left : 2em;
+	}
+	
+	.hspacer4
+	{
+		display      : inline;
+		padding-left : 4em;
+	}
+	
+	.vspacer1
+	{
+		padding-top : 1em;
+	}
+	
+	.vspacer2
+	{
+		padding-top : 2em;
+	}
+	
+	.vspacer4
+	{
+		padding-top : 4em;
+	}
+	
+	/*========== QUOTES */
+	/*http://www.w3schools.com/charsets/ref_utf_punctuation.asp*/
+	/* thinsp= hex=\2009 &#8239;
+	/* The quote of unicode works as is in blogger */
+	/*div[lang|='FR'] q,*/
+	/*q:lang(fr),*/
+	:lang(fr) q
+	{
+		font-style : italic;
+		quotes     : "«\A0" "\A0»" "\201c" "\201d";
+	}
+	
+	/*{ font-style : italic; quotes : '\AB\A0' '\A0\BB' "'" "'"; }*/
+	/*{ font-style : italic; quotes : "\AB\A0" "\A0\BB" "\201c" "\201d"; }*/
+	/*{ font-style : italic; quotes : "\AB\2009" "\2009\BB" "\201c" "\201d"; }*/
+	/*div[lang|='ES'] q,*/
+	/*q:lang(es),*/
+	:lang(es) q
+	{
+		font-style : italic;
+		quotes     : '\AB' '\BB' '\201c' '\201d';
+	}
+	
+	/*Single emphasis inside quote */
+	q > EM, EM > EM
+	{
+		text-decoration : underline;
+	}
+	
 }
-
 
 @media all, i3sections
 {
-  /*===========  STRUCTURE OBJECTS */
-  /*Sections glossaire, liens, etc*/
-  /* Tous les cas: liste fichiers et statics avec spirale */
-  header img.i3epub
-  {
-    margin : 0em;
-    float  : left;
-  }
-
-  header
-  {
-    text-align  : left;
-    display     : block;
-    font-size   : 80%;
-    font-weight : bold;
-    font-family : "Helvetica Neue", Helvetica, Arial, fantasy;
-    line-height : 3em;
-    padding     : 1em;
-  }
-
-  /* Uniquement pour Table des matières avec Monsieur UBU*/
-  nav img.i3epub
-  {
-    margin : 2em 1em 20em;
-    float  : left;
-  }
-
-  /*img.i3epub+span
-  {
-    font-size : 140%; !* font-weight:bold;*!
-    font-family: 'Forum', "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }*/
-  nav
-  {
-    clear       : both;
-    line-height : 2em;
-    font-family : Calibri, "Arial Narrow", serif;
-  }
-
-  #toc-main ol,
-  #toc ol
-  {
-    padding-left : 2em;
-    list-style   : inside;
-  }
-
-  #toc-post ol
-  { list-style           : inside;
-/*EPUB_NOCOPY*/
-    -moz-column-count    : 2; /* Firefox */
-    -webkit-column-count : 2; /* Safari and Chrome */
-/*EPUB_DONE*/
-    column-count         : 2;
-    font-size            : 86%;
-  }
-
+	/*===========  STRUCTURE OBJECTS */
+	/*Sections glossaire, liens, etc*/
+	/* Tous les cas: liste fichiers et statics avec spirale */
+	header img.i3epub
+	{
+		margin : 0;
+		float  : left;
+	}
+	
+	header
+	{
+		text-align  : left;
+		display     : block;
+		font-size   : 80%;
+		font-weight : bold;
+		font-family : "Helvetica Neue", Helvetica, Arial, fantasy;
+		line-height : 3;
+		padding     : 1em;
+	}
+	
+	/* Uniquement pour Table des matières avec Monsieur UBU*/
+	nav img.i3epub
+	{
+		margin : 2em 1em 20em;
+		float  : left;
+	}
+	
+	/*img.i3epub+span
+	{
+		font-size : 140%; !* font-weight:bold;*!
+		font-family: 'Forum', "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}*/
+	nav
+	{
+		/*clear       : both;*/
+		line-height : 2;
+		font-family : Calibri, "Arial Narrow", serif;
+	}
+	
+	#toc-main ol,
+	#toc ol
+	{
+		padding-left : 2em;
+		list-style   : inside;
+	}
+	
+	#toc-post ol
+	{
+		list-style           : inside;
+		/*EPUB_NOCOPY*/
+		-moz-column-count    : 2; /* Firefox */
+		-webkit-column-count : 2; /* Safari and Chrome */
+		/*EPUB_DONE*/
+		column-count         : 2;
+		font-size            : 86%;
+	}
+	
 }
 
+/**
+  Contains all the layout definitions
+ */
 @media all, i3layout
 {
-
-  /*=== DATATION + SEPARATORS + FOONOTES */
-  /* PPCCDate information.: */
-  div.i3date
-  {
-    margin: 1em 2em;
-    font-size   : 80%;
-    color       : gray;
-    text-align  : right;
-  }
-
-  /*===========  POST LAYOUT STRUCTURE */
-  .i3common
-  {
-    margin      : 1.5em 1em 4em 1em;
-    font-family : Georgia, "Times New Roman", serif;
-    color       : #666;
-    line-height : 1.5em;
-    position    : relative;
-    overflow    : visible !important; /*Ensures spacer in blogger */
-    /*text-align: left;*/
-    /*word-break  : normal;*/
-  }
-
-  /* Monoligual (EPUB) */
-  .i3post
-  {
-    padding    : 1em;
-    text-align : justify;
-  }
-
-  /* Bilingual Version Source */
-  .i3postVS
-  {
-    text-align           : left;
-    color                : #666;
-    font-size            : 86%;
-/*EPUB_NOCOPY*/
-    -moz-column-count    : 2; /* Firefox */
-    -webkit-column-count : 2; /* Safari and Chrome */
-/*EPUB_DONE*/
-    column-count         : 2;
-  }
-
-  /* Bilingual Version Target  */
-  .i3postVT
-  {
-    padding    : 1em;
-    text-align : left;
-  }
-
-  /*====== AUTHOR'S COMMENT CONCATENATOR  */
-  hr.i3concat
-  {
-    clear            : both;
-    border-width     : 0;
-    color            : #666; background-color : #666;
-    height           : 1px;
-    line-height      : 1em;
-    margin           : 3em 0 2em 0;
-    page-break-after : auto;
-    text-align       : right;
-    width            : 33%;
-  }
-
-  div.i3concat
-  {
-    font-family : sans-serif; font-size : 64%; font-stretch : normal;
-    margin      : -2em 0 0 0;
-  }
-
-  /*====== AUTHOR'S FOOTNOTES   */
-  /*Subdivision for footer */
-  /* Article footer notes (Entered after  \n___\n) */
-  hr.i3hr
-  {
-    clear            : both;
-    border-width     : 0;
-    color            : #666; background-color : #666;
-    height           : 2px;
-    line-height      : 1em;
-    margin           : 3em 0 1em 0;
-    page-break-after : auto;
-    text-align       : right; /*Dans la largeur*/
-    width            : 5%;
-  }
-
-  div.i3footer
-  {
-    font-family : sans-serif; font-size : 84%; font-stretch : normal;
-    padding     : 0 1em 0 1em;
-    /*padding-left: 1em;*/
-    border-left : 2px solid #DDD;
-    text-align  : left;
-  }
-
-  div.i3footer > p
-  {
-    margin      : .5em 0 0 0;
-    padding     : 0;
-    line-height : 1.5em;
-  }
+	body
+	{
+		font-variant : normal;
+		font-family  : Calibri, Arial, serif;
+		font-size    : 96%; /* Modifiy this to affect the whole book */
+	}
+	
+	/*=== DATATION + SEPARATORS + FOONOTES */
+	/* PPCCDate information.: */
+	div.i3date
+	{
+		margin     : 1em 2em;
+		font-size  : 80%;
+		color      : gray;
+		text-align : right;
+	}
+	
+	/* The graphical separator '***' inside a post
+		 Example: 201612261455
+	*/
+	.i3stars
+	{
+		display    : block;
+		text-align : center;
+		font-size  : 150%;
+		margin     : 2em 0;
+	}
+	
+	/*===========  POST LAYOUT STRUCTURE */
+	.i3common
+	{
+		margin      : 1.5em 1em 4em 1em;
+		font-family : Georgia, "Times New Roman", serif;
+		color       : #666;
+		line-height : 1.5;
+		position    : relative;
+		overflow    : visible !important; /*Ensures spacer in blogger */
+		text-align  : justify;
+		/*word-break  : normal;*/
+	}
+	
+	/* Monoligual (EPUB) */
+	.i3post
+	{
+		/*padding    : 1em;*/
+		margin     : 1em;
+		text-align : justify;
+	}
+	
+	.i3postVS
+	{
+		/* text-align: left; */
+		color                : #666;
+		font-size            : 86%;
+		/*EPUB_NOCOPY*/
+		-moz-column-count    : 2; /* Firefox */
+		-webkit-column-count : 2; /* Safari and Chrome */
+		column-count         : 2;
+		-webkit-column-gap   : 3em;
+		-moz-column-gap      : 2em;
+		column-gap           : 3em;
+		/*EPUB_DONE*/
+	}
+	
+	/* Bilingual Version Target  */
+	.i3postVT
+	{
+		padding : 0.5em;
+		/*text-align : left;*/
+	}
+	
+	/*====== AUTHOR'S COMMENT CONCATENATOR  */
+	hr.i3concat
+	{
+		clear            : both;
+		border-width     : 0;
+		color            : #666;
+		background-color : #666;
+		height           : 1px;
+		line-height      : 1em;
+		margin           : 3em 0 2em 0;
+		page-break-after : auto;
+		text-align       : right;
+		width            : 33%;
+	}
+	
+	div.i3concat
+	{
+		font-family  : sans-serif;
+		font-size    : 64%;
+		font-stretch : normal;
+		margin       : -2em 0 0 0;
+	}
+	
+	/*====== AUTHOR'S FOOTNOTES   */
+	/*Subdivision for footer */
+	/* Article footer notes (Entered after  \n___\n) */
+	hr.i3hr
+	{
+		clear            : both;
+		border-width     : 0;
+		color            : #666;
+		background-color : #666;
+		height           : 2px;
+		line-height      : 1em;
+		margin           : 3em 0 1em 0;
+		page-break-after : auto;
+		text-align       : right; /*Dans la largeur*/
+		width            : 5%;
+	}
+	
+	/*====== AUTHOR'S FOOTNOTES   */
+	/*Subdivision for footer */
+	/* Article footer notes (Entered after  \n___\n) */
+	div.i3footer
+	{
+		font-family  : sans-serif;
+		font-size    : 84%;
+		font-stretch : normal;
+		padding      : 0 1em 0 1em;
+		/*padding-left: 1em;*/
+		border-left  : 2px solid #ddd;
+		text-align   : left;
+	}
+	
+	div.i3footer > p
+	{
+		margin      : .5em 0 0 0;
+		padding     : 0;
+		line-height : 1.5;
+	}
 }
 
 @media all, i3editor
 {
-
-  /*====== EDITOR'S NOTES  */
-  /*Subdivision for NdT/FOOTER
-    Note: footer == div.i3ndt
-  */
-  sup > a:link
-  { text-decoration : none; }
-
-  hr.i3ndt
-  {
-    clear            : both;
-    border-width     : 0;
-    color            : #666; background-color : #666;
-    height           : 2px;
-    line-height      : 1em;
-    margin           : 2em 0 1em 0;
-    page-break-after : auto;
-    text-align       : right; /*Dans la largeur*/
-    width            : 5%;
-  }
-
-  :lang(fr) hr.i3ndt:after
-  { content : "Notes:"; font-size : 72%; font-weight : bold; }
-
-  :lang(es) hr.i3ndt:after
-  { content : "Notas:"; font-size : 72%; font-weight : bold; }
-
-  footer p.i3ndt,
-  aside p.i3ndt
-  {
-    margin      : 1em 3em 0 2.5em;
-    text-indent : -1em;
-    padding     : 0;
-    font-size   : 64%;
-    line-height : 1.5em;
-    color       : gray;
-  }
-
+	
+	/*====== EDITOR'S NOTES  */
+	/*Subdivision for NdT/FOOTER
+		Note: footer == div.i3ndt
+	*/
+	sup > a:link
+	{
+		text-decoration : none;
+	}
+	
+	hr.i3ndt
+	{
+		clear            : both;
+		border-width     : 0;
+		color            : #666;
+		background-color : #666;
+		height           : 2px;
+		line-height      : 1em;
+		margin           : 2em 0 1em 0;
+		page-break-after : auto;
+		text-align       : right; /*Dans la largeur*/
+		width            : 5%;
+	}
+	
+	:lang(fr) hr.i3ndt:after
+	{
+		content     : "Notes:";
+		font-size   : 72%;
+		font-weight : bold;
+	}
+	
+	:lang(es) hr.i3ndt:after
+	{
+		content     : "Notas:";
+		font-size   : 72%;
+		font-weight : bold;
+	}
+	
+	footer p.i3ndt,
+	aside p.i3ndt
+	{
+		margin      : 1em 3em 0 2.5em;
+		text-indent : -1em;
+		padding     : 0;
+		font-size   : 64%;
+		line-height : 1.5;
+		color       : gray;
+	}
+	
 }
 
 @media all, i3medias
 {
-  /*links */
-  a.lexcss { background : #e2ebe2; }
-  p.lexcss { font-size  : smaller; text-align: center; }  /* <p lexcss> as StyliseBlock */
-
-
-
-  /*=== Contents : pdf  video */
-  /* Images inside the Post : (author's images)
-  */
-  img.lexcss,
-  img.i3img
-  { width : 60%; margin-left : auto; margin-right : auto; }
-
-  /* Use a div container to adjust size
-     See: https://www.h3xed.com/web-development/how-to-make-a-responsive-100-width-youtube-iframe-embed
-  */
-  div.i3frame
-  {
-    margin:auto;  /*centering !*/
-
-    position       : relative;
-    width          : 64%;
-    height         : 0;
-    padding-bottom : 56.25%;
-  }
-
-  iframe.i3frame,
-  iframe.lexcss
-  {
-    position : absolute;
-    width    : 100%;
-    height   : 100%;
-  }
+	/*links */
+	a.lexcss
+	{
+		background : #e2ebe2;
+	}
+	
+	p.lexcss
+	{
+		font-size  : smaller;
+		text-align : center;
+	}
+	
+	/* <p lexcss> as StyliseBlock */
+	/*=== Contents : pdf  video */
+	/* Images inside the Post : (author's images)
+	*/
+	img.lexcss,
+	img.i3img
+	{
+		width        : 60%;
+		margin-left  : auto;
+		margin-right : auto;
+	}
+	
+	/*Credit Table: the images inside are centered and reized: */
+	td > img
+	{
+		width      : 50%;
+		text-align : center;
+	}
+	
+	/* WARNING: For EPUB version : we cannot use relative/absolute
+		 Use a div container to adjust size
+		 See: https://www.h3xed.com/web-development/how-to-make-a-responsive-100-width-youtube-iframe-embed
+	*/
+	div.i3frame
+	{
+		margin         : auto; /*centering !*/
+		
+		position       : relative;
+		width          : 64%;
+		height         : 0;
+		padding-bottom : 56.25%;
+	}
+	
+	iframe.i3frame,
+	iframe.lexcss
+	{
+		position : absolute;
+		width    : 100%;
+		height   : 100%;
+	}
 }
 
 @media all, i3statics
 {
-  /*===========  StaticTables
-  For colors:
-  http://www.colors.commutercreative.com/grid/
-  */
-
-
-
-  /*List of terms in source language*/
-  div.i3jumps
-  {
-    margin-left          : auto;
-    margin-right         : auto;
-    width                : 86%;
-    text-align           : left;
-    color                : #666;
-    font-size            : 74%;
-/*EPUB_NOCOPY*/
-    -moz-column-count    : 3; /* Firefox */
-    -webkit-column-count : 3; /* Safari and Chrome */
-/*EPUB_DONE*/
-    column-count         : 3;
-  }
-
-  table
-  {
-    margin-left  : auto;
-    margin-right : auto;
-    width        : 96%;
-    background   : #FFFFF8     ;      /* Based on LightYellow*/
-  }
-
-  td:nth-child(odd) /* colonne gauche DT */
-  {
-    margin         : 1em;
-    padding        : 1em;
-    font           : normal 1em/1.5em Arial, Helvetica;
-    font-size      : 84%;
-    font-weight    : normal;
-    width          : 20%;
-/*The WEB version color ! */
-    background     : GhostWhite;
-/*EPUB_DONE*/
-    text-align     : right;
-    vertical-align : top;
-  }
-
-  td:nth-child(even) /* colonne droite DD */
-  {
-    padding     : 1em;
-    font-size   : 72%;
-    line-height : 1.5em;
-  }
-
-  /* Glossary : first line with source terms is inside span */
-  td:nth-child(even) > span /* la version bilingue use <span> pour le mot espagnol */
-  {
-    font-style  : italic;
-    line-height : 2em;
-    padding-top : 0;
-    background  : rgba(0, 188, 187, 0.33);
-  }
-
-  /* Credits, Notes... with <ol><li> -- Adds some separation between notes */
-  td li
-  { margin : 0.5em 0; }
-
-
-  /*===========  Static Navigation button */
-  div.i3nav
-  { width : 92%; text-align : right; margin : 2em 0; }
-
-  .i3buttonNav
-  {
-    font             : normal 1em/1.5em Arial, Helvetica;
-    white-space      : nowrap;
-    margin           : 0;
-    padding          : 0 1.2em;
-    text-decoration  : none !important;
-    border           : 1px solid #aaa;
-    color            : #666 !important;
-    background-color : whiteSmoke; /* #EEE;*/
-  }
-
+	/*===========  StaticTables
+	For colors:
+	http://www.colors.commutercreative.com/grid/
+	*/
+	/*List of terms in source language*/
+	div.i3jumps
+	{
+		margin-left          : auto;
+		margin-right         : auto;
+		width                : 86%;
+		text-align           : left;
+		color                : #666;
+		font-size            : 74%;
+		/*EPUB_NOCOPY*/
+		-moz-column-count    : 3; /* Firefox */
+		-webkit-column-count : 3; /* Safari and Chrome */
+		/*EPUB_DONE*/
+		column-count         : 3;
+	}
+	
+	/*==== VERSION AVEC TABLE*/
+	table
+	{
+		margin-left  : auto;
+		margin-right : auto;
+		width        : 96%;
+		background   : #fffff8; /* Based on LightYellow*/
+	}
+	
+	td:nth-child(odd) /* colonne gauche DT */
+	{
+		display        : table-cell;
+		text-align     : right;
+		vertical-align : top;
+		/*    margin         : 1em;*/
+		padding        : 0 1em 0 0;
+		/*font           : normal 1em/1.5em Arial, Helvetica;*/
+		font-size      : 64%;
+		font-weight    : normal;
+		width          : 20%;
+		/*The WEB version color ! */
+		background     : GhostWhite;
+		/*EPUB_DONE*/
+	}
+	
+	td:nth-child(even) /* colonne droite DD */
+	{
+		padding     : 0 1em 1em;
+		font-size   : 72%;
+		line-height : 1.5;
+	}
+	
+	/* Glossary : first line with source terms is inside span */
+	td:nth-child(even) > span /* la version bilingue use <span> pour le mot espagnol */
+	{
+		font-style  : italic;
+		line-height : 2;
+		padding-top : 0;
+		background  : rgba(0, 188, 187, 0.33);
+	}
+	
+	/* Credits, Notes... with <ol><li> -- Adds some separation between notes */
+	td li
+	{
+		margin : 0.5em 0;
+	}
+	
+	/*==== VERSION AVEC DL+DR-DD*/
+	dl
+	{
+		width      : 100%;
+		overflow   : hidden;
+		background : #fffff8; /* Based on LightYellow*/
+		
+		padding    : 0;
+		margin     : 0
+	}
+	
+	dt
+	{
+		clear      : left;
+		float      : left;
+		width      : 20%; /* adjust the width; make sure the total DT+DD  is 100% */
+		background : GhostWhite;
+		padding    : 0;
+		margin     : 0.5em 0; /* Do not add left-right margins */
+	}
+	
+	dt > div
+	{
+		padding        : 0.5em;
+		border : 1px solid lightgray;
+		
+		/*font         : normal 1em/1.5em Arial, Helvetica;*/
+		font-size      : 64%;
+		font-weight    : normal;
+		text-align     : right;
+		vertical-align : top;
+	}
+	
+	dd
+	{
+		float   : left;
+		width   : 80%; 		/* adjust the width; make sure the total of both is 100% */
+		padding : 0;
+		margin     : 0.5em 0;  /* Do not add left-right margins */
+	}
+	dd > div
+	{
+		padding     : 0.5em;
+		font-size   : 72%;
+		line-height : 1.5;
+		vertical-align : top;
+	}
+	/* Glossary : first line with source terms is inside span */
+	dd > div > span /* la version bilingue use <span> pour le mot espagnol */
+	{
+		font-style  : italic;
+		line-height : 2;
+		padding-top : 0;
+		background  : rgba(0, 188, 187, 0.33);
+	}
+  
+	
+	/*===========  Static Navigation button */
+	div.i3head
+	{
+		width      : 92%;
+		text-align : right;
+		margin     : 2em 0;
+	}
+	
+	.i3buttonNav
+	{
+		font             : normal 1em/1.5em Arial, Helvetica;
+		white-space      : nowrap;
+		margin           : 0;
+		padding          : 0 1.2em;
+		text-decoration  : none !important;
+		border           : 1px solid #aaa;
+		color            : #666 !important;
+		background-color : whiteSmoke; /* #EEE;*/
+	}
+	
 }
 
 @media screen, i3WEBbuttons
 {
-
-  /*===========  IN3ACTIVE BUTTONS STYLES
-   Using tag <a>
-  */
-  .i3buttons
-  {
-    overflow   : visible; /* removes extra side spacing in IE */
-    display    : table;
-    float      : right;
-    position   : relative;
-    margin     : 0;
-    padding    : 1em;
-    text-align : right;
-  }
-
-  .i3buttonDlg
-  { background-color : palegoldenrod; }
-
-  .i3buttonREF:hover
-  {
-    font-weight : bold;
-    /*background-color : #DDEEEE;*/
-  }
-
-  .i3buttonREF
-  {
-    font             : normal 1em/1.5em Arial, Helvetica;
-    white-space      : nowrap;
-    margin           : 0;
-    padding          : 0 1.2em;
-    text-decoration  : none !important;
-    border           : 1px solid #aaa;
-    color            : #666 !important;
-    background-color : whiteSmoke; /* #EEE;*/
-  }
-
-  .i3buttonVS
-  {
-    font             : normal 1em/1.5em Arial, Helvetica;
-    white-space      : nowrap;
-    margin           : 0;
-    padding          : 0 1.2em;
-    text-decoration  : none !important;
-    border           : 1px solid #aaa;
-    color            : #666 !important;
-    background-color : whiteSmoke; /* #EEE;*/
-  }
-
-  /* dynamic classes added */
-  .i3buttonVSPlus:after
-  { content : '\261F'; font : normal 1em/1em Arial, Helvetica; }
-
-  /*White down   pointing index*/
-  .i3buttonVSMinus:after
-  { content : '\261D'; font : normal 1em/1em Arial, Helvetica; }
-
-  /*White up   pointing index*/
-  .i3buttonVS:after
-  {
-    background            : whiteSmoke; /* #EEE;*/
-    /*background: rgba(0,0,0,.1);*/
-    -moz-box-shadow       : 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0 rgba(255, 255, 255, .5);
-    -webkit-box-shadow    : 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0 rgba(255, 255, 255, .5);
-    box-shadow            : 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0 rgba(255, 255, 255, .5);
-    -moz-border-radius    : .15em 0 0 .15em;
-    -webkit-border-radius : .15em 0 0 .15em;
-    border-radius         : .15em 0 0 .15em;
-    width                 : 1em;
-    text-align            : center;
-    margin                : 0 -1em 0 1em; /* position right */
-    padding               : 0 .2em 0 0.2em;
-    font-size             : 1.3em;
-  }
-
+	
+	/*===========  IN3ACTIVE BUTTONS STYLES
+	 Using tag <a>
+	*/
+	.i3buttons
+	{
+		overflow   : visible; /* removes extra side spacing in IE */
+		display    : table;
+		float      : right;
+		position   : relative;
+		margin     : 0;
+		padding    : 1em;
+		text-align : right;
+	}
+	
+	.i3buttonDlg
+	{
+		background-color : palegoldenrod;
+	}
+	
+	.i3buttonREF:hover
+	{
+		font-weight : bold;
+		/*background-color : #DDEEEE;*/
+	}
+	
+	.i3buttonREF
+	{
+		font             : normal 1em/1.5em Arial, Helvetica;
+		white-space      : nowrap;
+		margin           : 0;
+		padding          : 0 1.2em;
+		text-decoration  : none !important;
+		border           : 1px solid #aaa;
+		color            : #666 !important;
+		background-color : whiteSmoke; /* #EEE;*/
+	}
+	
+	.i3buttonVS
+	{
+		font             : normal 1em/1.5em Arial, Helvetica;
+		white-space      : nowrap;
+		margin           : 0;
+		padding          : 0 1.2em;
+		text-decoration  : none !important;
+		border           : 1px solid #aaa;
+		color            : #666 !important;
+		background-color : whiteSmoke; /* #EEE;*/
+	}
+	
+	/* dynamic classes added */
+	.i3buttonVSPlus:after
+	{
+		content : '\261F';
+		font    : normal 1em/1em Arial, Helvetica;
+	}
+	
+	/*White down   pointing index*/
+	.i3buttonVSMinus:after
+	{
+		content : '\261D';
+		font    : normal 1em/1em Arial, Helvetica;
+	}
+	
+	/*White up   pointing index*/
+	.i3buttonVS:after
+	{
+		background            : whiteSmoke; /* #EEE;*/
+		/*background: rgba(0,0,0,.1);*/
+		-moz-box-shadow       : 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0 rgba(255, 255, 255, .5);
+		-webkit-box-shadow    : 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0 rgba(255, 255, 255, .5);
+		box-shadow            : 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0 rgba(255, 255, 255, .5);
+		-moz-border-radius    : .15em 0 0 .15em;
+		-webkit-border-radius : .15em 0 0 .15em;
+		border-radius         : .15em 0 0 .15em;
+		width                 : 1em;
+		text-align            : center;
+		margin                : 0 -1em 0 1em; /* position right */
+		padding               : 0 .2em 0 0.2em;
+		font-size             : 1.3em;
+	}
+	
 }
 
 @media screen, i3WEBuserforms
 {
-
-  /*===========  FORM ITEMS
-  http://www.w3schools.com/html/html_colornames.asp
-  */
-  .i3form
-  { width : 96%; }
-
-  .i3formfields
-  {
-    display            : block;
-    text-align         : left;
-    font-size          : 90%;
-    padding            : 0.5em;
-    border             : 1px solid #3a3a3a;
-    /* CSS3 rounded corners, drop-shadow and opacity fade in */
-    -moz-border-radius : 12px;
-    border-radius      : 12px;
-    -webkit-box-shadow : 2px 2px 4px #3a3a3a;
-    -moz-box-shadow    : 2px 2px 4px #3a3a3a;
-    box-shadow         : 2px 2px 4px #3a3a3a;
-    -webkit-transition : opacity 0.5s ease-in-out;
-    -moz-transition    : opacity 0.5s ease-in-out;
-    -o-transition      : opacity 0.5s ease-in-out;
-    -ms-transition     : opacity 0.5s ease-in-out;
-    transition         : opacity 0.5s ease-in-out;
-  }
-
-  .i3formfields .i3formError
-  {
-    color      : red;
-    text-align : center;
-    font-style : italic;
-  }
-
-  .i3formfields .i3fieldError
-  { border : solid 1px red; }
-
-  .i3formfields label
-  {
-    display    : inline-block;
-    font-style : italic; width : 45%; text-align : right;
-  }
-
-  .i3formfields input[type='text']
-  {
-    display          : inline-block;
-    background-color : whiteSmoke;
-    border           : medium none;
-    padding          : 0.5em; margin : 0.5em;
-    height           : 1.8em;
-    width            : 40%;
-  }
-
-  .i3formfields textarea
-  {
-    width            : 94%;
-    resize           : vertical;
-    background-color : whiteSmoke;
-    border           : medium none;
-    padding          : 0.5em; margin : 0.5em;
-  }
-
-  .i3formbuttons
-  {
-    text-align : center; display : block;
-    font-size  : 90%;
-    padding    : 1em;
-  }
-
-  .i3formbuttons input[type='reset']
-  { background-color : lightsalmon; }
-
-  .i3formbuttons input[type='submit']
-  { background-color : palegreen; }
-
-  .i3formbuttons input[type='button']
-  { background-color : whiteSmoke; }
-
-  .i3formdescription
-  {
-    /*border-top : 1px solid #ccc;*/
-    width      : 96%;
-    font-style : italic;
-    font-size  : 90%;
-    text-align : center;
-  }
-
+	
+	/*===========  FORM ITEMS
+	http://www.w3schools.com/html/html_colornames.asp
+	*/
+	.i3form
+	{
+		width : 96%;
+	}
+	
+	.i3formfields
+	{
+		display            : block;
+		text-align         : left;
+		font-size          : 90%;
+		padding            : 0.5em;
+		border             : 1px solid #3a3a3a;
+		/* CSS3 rounded corners, drop-shadow and opacity fade in */
+		-moz-border-radius : 12px;
+		border-radius      : 12px;
+		-webkit-box-shadow : 2px 2px 4px #3a3a3a;
+		-moz-box-shadow    : 2px 2px 4px #3a3a3a;
+		box-shadow         : 2px 2px 4px #3a3a3a;
+		-webkit-transition : opacity 0.5s ease-in-out;
+		-moz-transition    : opacity 0.5s ease-in-out;
+		-o-transition      : opacity 0.5s ease-in-out;
+		-ms-transition     : opacity 0.5s ease-in-out;
+		transition         : opacity 0.5s ease-in-out;
+	}
+	
+	.i3formfields .i3formError
+	{
+		color      : red;
+		text-align : center;
+		font-style : italic;
+	}
+	
+	.i3formfields .i3fieldError
+	{
+		border : solid 1px red;
+	}
+	
+	.i3formfields label
+	{
+		display    : inline-block;
+		font-style : italic;
+		width      : 45%;
+		text-align : right;
+	}
+	
+	.i3formfields input[type='text']
+	{
+		display          : inline-block;
+		background-color : whiteSmoke;
+		border           : medium none;
+		padding          : 0.5em;
+		margin           : 0.5em;
+		height           : 1.8em;
+		width            : 40%;
+	}
+	
+	.i3formfields textarea
+	{
+		width            : 94%;
+		resize           : vertical;
+		background-color : whiteSmoke;
+		border           : medium none;
+		padding          : 0.5em;
+		margin           : 0.5em;
+	}
+	
+	.i3formbuttons
+	{
+		text-align : center;
+		display    : block;
+		font-size  : 90%;
+		padding    : 1em;
+	}
+	
+	.i3formbuttons input[type='reset']
+	{
+		background-color : lightsalmon;
+	}
+	
+	.i3formbuttons input[type='submit']
+	{
+		background-color : palegreen;
+	}
+	
+	.i3formbuttons input[type='button']
+	{
+		background-color : whiteSmoke;
+	}
+	
+	.i3formdescription
+	{
+		/*border-top : 1px solid #ccc;*/
+		width      : 96%;
+		font-style : italic;
+		font-size  : 90%;
+		text-align : center;
+	}
+	
 }
 
 @media screen, i3WEBtabs
 {
-  /*===========  TABED DIALOGS
-   * "Yet Another Multicolumn Layout" - YAML CSS Framework
-   *
-   * (en) Styles for Accessible-Tabs plugin for jQuery
-   * (de) Gestaltung des Acessible-Tabs Plugins für jQuery
-   *
-   * @copyright       Copyright 2005-2012, Dirk Jesse
-   * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
-   *                  YAML-CDL (http://www.yaml.de/license.html)
-   * @link            http://www.yaml.de
-   * @package         yaml
-   * @version         v4.0.1
-   * @revision        $Revision: 724 $
-   * @lastmodified    $Date: 2012-03-03 11:45:41 +0100 (Sa, 03 Mrz 2012) $
-   */
-  .jquery_tabs
-  {
-    margin : 1em 2em;
-    clear  : both;
-  }
-
-  .jquery_tabs .tabhead
-  {
-    position : absolute;
-    left     : -32768px; /* LTR */
-  }
-
-  .jquery_tabs .content
-  {
-    border-top    : 1px #ccc solid;
-    border-bottom : 1px #ccc solid;
-    clear         : both;
-    position      : relative;
-    /*top           : -3px;*/
-    /*bottom        : -3px;*/
-    margin        : 0.5em;
-    padding       : 1em;
-  }
-
-  .jquery_tabs ul.tabs-list
-  {
-    font            : 1em/1.5em Arial, Helvetica;
-    list-style-type : none;
-    overflow        : visible;
-    display         : table;
-    float           : right;
-    position        : relative;
-    padding         : 0;
-    text-align      : right;
-    z-index         : 1;
-
-    /*margin: 0 0 6em 0;     IRM= allow alot room below ! */
-  }
-
-  .jquery_tabs ul.tabs-list li:hover
-  {
-    font-weight : bold;
-    /*background-color : #DDEEEE;*/
-  }
-
-  .jquery_tabs ul.tabs-list li
-  {
-    display          : inline;
-    text-align       : right; /* be sure the a-ref buttons are right packed */
-    float            : left;
-    font             : normal 1em/1.5em Arial, Helvetica;
-    white-space      : nowrap;
-    margin           : 0;
-    padding          : 0 1.2em;
-    text-decoration  : none !important;
-    border           : 1px solid #aaa;
-    color            : #666 !important;
-    background-color : whiteSmoke; /*#b0c4de=lightsteelblue;  whiteSmoke; #EEE;*/
-  }
-
-  .jquery_tabs ul.tabs-list li a
-  {
-    background      : transparent;
-    /*color:#008;*/
-    color           : #666;
-    display         : block;
-    float           : left;
-    font-weight     : normal;
-    margin          : 0;
-    outline         : 0 none;
-    text-decoration : none;
-  }
-
-  .jquery_tabs ul.tabs-list li a:focus,
-  .jquery_tabs ul.tabs-list li a:hover,
-  .jquery_tabs ul.tabs-list li a:active
-  {
-    border-radius   : 0.4em 0.4em 0 0;
-    color           : #555;
-    font-weight     : bold;
-    outline         : 0 none;
-    text-decoration : none;
-  }
-
-  .jquery_tabs ul.tabs-list li.current a,
-  .jquery_tabs ul.tabs-list li.current a:focus,
-  .jquery_tabs ul.tabs-list li.current a:hover,
-  .jquery_tabs ul.tabs-list li.current a:active
-  {
-    /*border          : 1px #ccc solid;*/
-    border-bottom   : 0 none;
-    border-radius   : 0.2em 0.2em 0 0;
-    color           : #000;
-    font-weight     : bold;
-    text-decoration : none;
-  }
-
-  .jquery_tabs .current-info,
-  .jquery_tabs .accessibletabsanchor
-  {
-    left     : -999em;
-    position : absolute;
-  }
-
-  /**
-  * Avoid margin collapsing to enable correct sync of all tabs
-  *
-  * @workaround
-  * @affected all browsers
-  * @css-for all browsers
-  * @valid yes
-  */
-  .jquery_tabs .tab-content
-  {
-    border-bottom : 1px transparent solid;
-    border-top    : 1px transparent solid;
-    *overflow     : hidden;
-  }
-
-  /* IE < 7 don't support transparent borders */
-  * html .jquery_tabs .tab-content
-  {
-    border-bottom : 1px #fff solid;
-    border-top    : 1px #fff solid;
-  }
-
-  /**
-  * Containing floats adjustment and stability fixes for Internet Explorer
-  *
-  * @workaround
-  * @affected IE 5.x/Win, IE6, IE7
-  * @css-for IE 5.x/Win, IE6, IE7
-  * @valid no
-  */
-  * html .jquery_tabs .content
-  { z-index : -1;
-  }
-
-  * html .jquery_tabs
-  { /*zoom : 1;*/ width : auto; position : relative; }
-
-  * + html .jquery_tabs
-  { /*zoom : 1; */ width : auto; }
-
-  .jquery_tabs *
-  { /*zoom : 1;*/ }
-
+	/*===========  TABED DIALOGS
+	 * "Yet Another Multicolumn Layout" - YAML CSS Framework
+	 *
+	 * (en) Styles for Accessible-Tabs plugin for jQuery
+	 * (de) Gestaltung des Acessible-Tabs Plugins für jQuery
+	 *
+	 * @copyright       Copyright 2005-2012, Dirk Jesse
+	 * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+	 *                  YAML-CDL (http://www.yaml.de/license.html)
+	 * @link            http://www.yaml.de
+	 * @package         yaml
+	 * @version         v4.0.1
+	 * @revision        $Revision: 724 $
+	 * @lastmodified    $Date: 2012-03-03 11:45:41 +0100 (Sa, 03 Mrz 2012) $
+	 */
+	.jquery_tabs
+	{
+		margin : 1em 2em;
+		clear  : both;
+	}
+	
+	.jquery_tabs .tabhead
+	{
+		position : absolute;
+		left     : -32768px; /* LTR */
+	}
+	
+	.jquery_tabs .content
+	{
+		border-top    : 1px #ccc solid;
+		border-bottom : 1px #ccc solid;
+		clear         : both;
+		position      : relative;
+		/*top           : -3px;*/
+		/*bottom        : -3px;*/
+		margin        : 0.5em;
+		padding       : 1em;
+	}
+	
+	.jquery_tabs ul.tabs-list
+	{
+		font            : 1em/1.5em Arial, Helvetica;
+		list-style-type : none;
+		overflow        : visible;
+		display         : table;
+		float           : right;
+		position        : relative;
+		padding         : 0;
+		text-align      : right;
+		z-index         : 1;
+		
+		/*margin: 0 0 6em 0;     IRM= allow alot room below ! */
+	}
+	
+	.jquery_tabs ul.tabs-list li:hover
+	{
+		font-weight : bold;
+		/*background-color : #DDEEEE;*/
+	}
+	
+	.jquery_tabs ul.tabs-list li
+	{
+		display          : inline;
+		text-align       : right; /* be sure the a-ref buttons are right packed */
+		float            : left;
+		font             : normal 1em/1.5em Arial, Helvetica;
+		white-space      : nowrap;
+		margin           : 0;
+		padding          : 0 1.2em;
+		text-decoration  : none !important;
+		border           : 1px solid #aaa;
+		color            : #666 !important;
+		background-color : whiteSmoke; /*#b0c4de=lightsteelblue;  whiteSmoke; #EEE;*/
+	}
+	
+	.jquery_tabs ul.tabs-list li a
+	{
+		background      : transparent;
+		/*color:#008;*/
+		color           : #666;
+		display         : block;
+		float           : left;
+		font-weight     : normal;
+		margin          : 0;
+		outline         : 0 none;
+		text-decoration : none;
+	}
+	
+	.jquery_tabs ul.tabs-list li a:focus,
+	.jquery_tabs ul.tabs-list li a:hover,
+	.jquery_tabs ul.tabs-list li a:active
+	{
+		border-radius   : 0.4em 0.4em 0 0;
+		color           : #555;
+		font-weight     : bold;
+		outline         : 0 none;
+		text-decoration : none;
+	}
+	
+	.jquery_tabs ul.tabs-list li.current a,
+	.jquery_tabs ul.tabs-list li.current a:focus,
+	.jquery_tabs ul.tabs-list li.current a:hover,
+	.jquery_tabs ul.tabs-list li.current a:active
+	{
+		/*border          : 1px #ccc solid;*/
+		border-bottom   : 0 none;
+		border-radius   : 0.2em 0.2em 0 0;
+		color           : #000;
+		font-weight     : bold;
+		text-decoration : none;
+	}
+	
+	.jquery_tabs .current-info,
+	.jquery_tabs .accessibletabsanchor
+	{
+		left     : -999em;
+		position : absolute;
+	}
+	
+	/**
+	* Avoid margin collapsing to enable correct sync of all tabs
+	*
+	* @workaround
+	* @affected all browsers
+	* @css-for all browsers
+	* @valid yes
+	*/
+	.jquery_tabs .tab-content
+	{
+		border-bottom : 1px transparent solid;
+		border-top    : 1px transparent solid;
+		*overflow     : hidden;
+	}
+	
+	/* IE < 7 don't support transparent borders */
+	* html .jquery_tabs .tab-content
+	{
+		border-bottom : 1px #fff solid;
+		border-top    : 1px #fff solid;
+	}
+	
+	/**
+	* Containing floats adjustment and stability fixes for Internet Explorer
+	*
+	* @workaround
+	* @affected IE 5.x/Win, IE6, IE7
+	* @css-for IE 5.x/Win, IE6, IE7
+	* @valid no
+	*/
+	* html .jquery_tabs .content
+	{
+		z-index : -1;
+	}
+	
+	* html .jquery_tabs
+	{ /*zoom : 1;*/
+		width    : auto;
+		position : relative;
+	}
+	
+	* + html .jquery_tabs
+	{ /*zoom : 1; */
+		width : auto;
+	}
+	
+	.jquery_tabs *
+	{ /*zoom : 1;*/
+	}
+	
 }
 
 @media screen, i3WEBblogger
 {
-  /*===========  Google BLOGGERlayout */
-  h1.title.entry-title
-  { display : none !important; }
-
-
-  /*div.article-header { display: none !important;}*/
-  /*Google Comments block*/
-  /*div.comments  { display : none ; }*/
-  div.comments-header
-  { display : none !important; }
-
-  /*Google Sharing buttons */
-  div.article-footer
-  { display : none; }
-
-  /*div.publish-info   { display : none !important; }*/
-  div.share-controls
-  { width : 100%; text-align : center; }
-
-  /* Popup zona at bottom of view*/
-  a.feedback
-  { display : none !important; }
-
-  /* Use this to disable completely the view=classic option
-  #views.menu li.Classic { display:none; }*/
-  /* Tip to add readmore
-  http://www.southernspeakers.net/2012/09/adding-read-more-tag-to-post-summaries.html  */
-  :lang(fr) .magazine .summary:after,
-  :lang(fr) .ss
-  {
-    content : " [Lire]" !important;
-    color   : indianred !important;
-  }
-
-  :lang(es) .magazine .summary:after,
-  :lang(es) .ss
-  {
-    content : " [Leer]" !important;
-    color   : indianred !important;
-  }
-
+	/*===========  Google BLOGGERlayout */
+	h1.title.entry-title
+	{
+		display : none !important;
+	}
+	
+	/*div.article-header { display: none !important;}*/
+	/*Google Comments block*/
+	/*div.comments  { display : none ; }*/
+	div.comments-header
+	{
+		display : none !important;
+	}
+	
+	/*Google Sharing buttons */
+	div.article-footer
+	{
+		display : none;
+	}
+	
+	/*div.publish-info   { display : none !important; }*/
+	div.share-controls
+	{
+		width      : 100%;
+		text-align : center;
+	}
+	
+	/* Popup zona at bottom of view*/
+	a.feedback
+	{
+		display : none !important;
+	}
+	
+	/* Use this to disable completely the view=classic option
+	#views.menu li.Classic { display:none; }*/
+	/* Tip to add readmore
+	http://www.southernspeakers.net/2012/09/adding-read-more-tag-to-post-summaries.html  */
+	:lang(fr) .magazine .summary:after,
+	:lang(fr) .ss
+	{
+		content : " [Lire]" !important;
+		color   : indianred !important;
+	}
+	
+	:lang(es) .magazine .summary:after,
+	:lang(es) .ss
+	{
+		content : " [Leer]" !important;
+		color   : indianred !important;
+	}
+	
 }
