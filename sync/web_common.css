@@ -549,22 +549,32 @@
 		background : #e2ebe2;
 	}
 	
+	/* <p lexcss> as StyliseBlock */
+	/*=== Contents : pdf  video  Images
+	Pour des images côte à côte:
+	201701111638
+	201510120107
+	201610021412
+	@see p:not(.lexcss) pour clear:both
+	*/
 	p.lexcss
 	{
-		font-size  : smaller;
-		text-align : center;
+		font-size    : smaller;
+		text-align   : center;
+		margin-left  : auto;
+		margin-right : auto;
 	}
 	
-	/* <p lexcss> as StyliseBlock */
-	/*=== Contents : pdf  video */
-	/* Images inside the Post : (author's images)
-	*/
 	img.lexcss,
 	img.i3img
 	{
-		width        : 60%;
-		margin-left  : auto;
-		margin-right : auto;
+		float  : left;
+		width  : 40%;
+		margin : 5%;
+	}
+	p:not(.lexcss)
+	{
+		clear : both;   /* Degager les images qui utilisent float */
 	}
 	
 	/*Credit Table: the images inside are centered and reized: */
@@ -690,7 +700,7 @@
 	dt > div
 	{
 		padding        : 0.5em;
-		border : 1px solid lightgray;
+		border         : 1px solid lightgray;
 		
 		/*font         : normal 1em/1.5em Arial, Helvetica;*/
 		font-size      : 64%;
@@ -702,27 +712,28 @@
 	dd
 	{
 		float   : left;
-		width   : 80%; 		/* adjust the width; make sure the total of both is 100% */
+		width   : 80%; /* adjust the width; make sure the total of both is 100% */
 		padding : 0;
-		margin     : 0.5em 0;  /* Do not add left-right margins */
+		margin  : 0.5em 0; /* Do not add left-right margins */
 	}
+	
 	dd > div
 	{
-		padding     : 0.5em;
-		font-size   : 72%;
-		line-height : 1.5;
+		padding        : 0.5em;
+		font-size      : 72%;
+		line-height    : 1.5;
 		vertical-align : top;
 	}
+	
 	/* Glossary : first line with source terms is inside span */
 	dd > div > span /* la version bilingue use <span> pour le mot espagnol */
 	{
 		font-style  : italic;
 		font-size   : 90%;
-		font-family: "Arial", Georgia, serif;
+		font-family : "Arial", Georgia, serif;
 		padding-top : 0;
 		background  : rgba(0, 188, 187, 0.14);
 	}
-  
 	
 	/*===========  Static Navigation button */
 	div.i3head
